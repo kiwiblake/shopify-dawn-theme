@@ -8,8 +8,8 @@
     <div style="max-width: 48rem; margin-left: auto; margin-right: auto;">
 
       {% if section.settings.intro_text %}
-        <div style="background: linear-gradient(135deg, hsl(0, 75%, 95%) 0%, hsl(0, 70%, 97%) 100%); border-radius: 1rem; padding: 2rem; margin-bottom: 3rem; border: 1px solid hsl(0, 70%, 85%);">
-          <p style="color: var(--color-gray-700); font-style: italic; margin: 0; line-height: 1.75;">
+        <div style="background: linear-gradient(135deg, hsl(0, 75%, 95%) 0%, hsl(0, 70%, 97%) 100%); border-radius: 1rem; padding: 2.5rem; margin-bottom: 3rem; border: 1px solid hsl(0, 70%, 85%);">
+          <p style="font-size: 1.375rem; color: var(--color-gray-700); font-style: italic; margin: 0; line-height: 1.8;">
             {{ section.settings.intro_text }}
           </p>
         </div>
@@ -23,18 +23,18 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'menopause_stage' %}
-              <div {{ block.shopify_attributes }} style="display: flex; gap: 1rem; padding: 1rem; background: var(--color-white); border-radius: 0.5rem; border: 1px solid var(--color-gray-200);">
-                <div style="width: 2.5rem; height: 2.5rem; border-radius: 50%; background: linear-gradient(135deg, hsl(150, 45%, 90%) 0%, hsl(150, 40%, 95%) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  <svg width="20" height="20" fill="none" stroke="hsl(150, 55%, 45%)" viewBox="0 0 24 24">
+              <div {{ block.shopify_attributes }} style="display: flex; gap: 1.5rem; padding: 1.75rem; background: var(--color-white); border-radius: 0.75rem; border: 1px solid var(--color-gray-200); box-shadow: var(--shadow-sm);">
+                <div style="width: 3.5rem; height: 3.5rem; border-radius: 50%; background: linear-gradient(135deg, hsl(150, 45%, 90%) 0%, hsl(150, 40%, 95%) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <svg width="24" height="24" fill="none" stroke="hsl(150, 55%, 45%)" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="10" stroke-width="2"/>
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
                   </svg>
                 </div>
                 <div>
-                  <h3 style="font-family: var(--font-display); font-weight: 500; text-transform: uppercase; color: var(--color-gray-900); margin-bottom: 0.25rem;">
+                  <h3 style="font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; text-transform: uppercase; color: var(--color-gray-900); margin-bottom: 0.5rem;">
                     {{ block.settings.stage_name }}
                   </h3>
-                  <p style="font-size: 0.875rem; color: var(--color-gray-600); margin: 0;">
+                  <p style="font-size: 1.125rem; color: var(--color-gray-600); margin: 0; line-height: 1.7;">
                     {{ block.settings.stage_description }}
                   </p>
                 </div>
@@ -48,7 +48,7 @@
       </h2>
 
       {% if section.settings.treatment_text %}
-        <p style="color: var(--color-gray-700); margin-bottom: 2rem; line-height: 1.75;">
+        <p style="font-size: 1.25rem; color: var(--color-gray-700); margin-bottom: 2rem; line-height: 1.8;">
           {{ section.settings.treatment_text }}
         </p>
       {% endif %}

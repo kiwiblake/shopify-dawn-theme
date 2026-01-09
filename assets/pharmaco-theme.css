@@ -38,17 +38,17 @@
   --font-display: 'Proxima Nova Condensed', system-ui, -apple-system, sans-serif;
   --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Font sizes - Increased for better readability */
-  --font-size-xs: 0.75rem;      /* 12px */
-  --font-size-sm: 0.875rem;     /* 14px */
-  --font-size-base: 1.125rem;   /* 18px - increased from 16px */
-  --font-size-lg: 1.25rem;      /* 20px - increased from 18px */
-  --font-size-xl: 1.5rem;       /* 24px - increased from 20px */
-  --font-size-2xl: 1.875rem;    /* 30px - increased from 24px */
-  --font-size-3xl: 2.25rem;     /* 36px - increased from 30px */
-  --font-size-4xl: 2.75rem;     /* 44px - increased from 36px */
-  --font-size-5xl: 3.5rem;      /* 56px - increased from 48px */
-  --font-size-6xl: 4.5rem;      /* 72px - increased from 60px */
+  /* Font sizes - Significantly increased for excellent readability */
+  --font-size-xs: 0.875rem;     /* 14px - increased from 12px */
+  --font-size-sm: 1rem;         /* 16px - increased from 14px */
+  --font-size-base: 1.25rem;    /* 20px - increased from 18px */
+  --font-size-lg: 1.5rem;       /* 24px - increased from 20px */
+  --font-size-xl: 1.875rem;     /* 30px - increased from 24px */
+  --font-size-2xl: 2.25rem;     /* 36px - increased from 30px */
+  --font-size-3xl: 3rem;        /* 48px - increased from 36px */
+  --font-size-4xl: 3.75rem;     /* 60px - increased from 44px */
+  --font-size-5xl: 4.5rem;      /* 72px - increased from 56px */
+  --font-size-6xl: 6rem;        /* 96px - increased from 72px */
 
   /* Spacing */
   --spacing-xs: 0.5rem;    /* 8px */
@@ -281,9 +281,9 @@ html {
   align-items: center;
   justify-content: center;
   gap: var(--spacing-sm);
-  padding: 1rem 2rem;
+  padding: 1.125rem 2.25rem;
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -327,8 +327,8 @@ html {
 }
 
 .pharmaco-btn-lg {
-  padding: 1.25rem 2.5rem;
-  font-size: 1.125rem;
+  padding: 1.5rem 3rem;
+  font-size: 1.375rem;
 }
 
 /* ==========================================================================
@@ -891,9 +891,9 @@ html {
 }
 
 .pharmaco-info-cards__card-description {
-  font-size: var(--font-size-sm);
+  font-size: 1.125rem;
   color: var(--color-gray-600);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* ==========================================================================
@@ -992,8 +992,9 @@ html {
 }
 
 .pharmaco-products__card-description {
+  font-size: 1.25rem;
   color: var(--color-gray-600);
-  line-height: 1.7;
+  line-height: 1.8;
   margin-bottom: var(--spacing-lg);
 }
 
@@ -1005,8 +1006,8 @@ html {
 }
 
 .pharmaco-products__card-feature-badge {
-  font-size: var(--font-size-xs);
-  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: 1rem;
+  padding: 0.625rem 1rem;
   border-radius: var(--radius-full);
 }
 
@@ -1015,9 +1016,9 @@ html {
   align-items: center;
   justify-content: center;
   gap: var(--spacing-xs);
-  padding: var(--spacing-sm) var(--spacing-lg);
+  padding: 1rem 1.75rem;
   font-family: var(--font-display);
-  font-size: var(--font-size-sm);
+  font-size: 1.125rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -1061,8 +1062,8 @@ html {
 }
 
 .pharmaco-quiz-cta__description {
-  font-size: var(--font-size-lg);
-  line-height: 1.7;
+  font-size: 1.5rem;
+  line-height: 1.8;
   margin-bottom: var(--spacing-xl);
   max-width: 42rem;
   margin-left: auto;
@@ -1084,7 +1085,7 @@ html {
 }
 
 .pharmaco-quiz-cta__disclaimer {
-  font-size: var(--font-size-sm);
+  font-size: 1rem;
   margin-top: var(--spacing-lg);
   max-width: 36rem;
   margin-left: auto;
@@ -1151,8 +1152,8 @@ html {
 }
 
 .pharmaco-footer__brand-description {
-  font-size: var(--font-size-sm);
-  line-height: 1.6;
+  font-size: 1.125rem;
+  line-height: 1.7;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -1186,7 +1187,7 @@ html {
 }
 
 .pharmaco-footer__column-menu-link {
-  font-size: var(--font-size-sm);
+  font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   transition: color var(--transition-fast);
@@ -1204,8 +1205,8 @@ html {
 }
 
 .pharmaco-footer__mandatory {
-  font-size: var(--font-size-xs);
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.7;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: var(--spacing-md);
 }
@@ -1221,7 +1222,7 @@ html {
 }
 
 .pharmaco-footer__copyright {
-  font-size: var(--font-size-sm);
+  font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.7);
 }
 
