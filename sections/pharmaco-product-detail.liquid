@@ -34,7 +34,7 @@
       <div class="pharmaco-product-detail__benefits" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 80rem; margin: 0 auto 4rem;">
         {% for block in section.blocks %}
           {% case block.type %}
-            {% when 'benefit' %}
+            {% when 'product_benefit' %}
               <div
                 class="pharmaco-product-detail__benefit pharmaco-animate-fade-in-up"
                 style="
@@ -311,8 +311,8 @@
   ],
   "blocks": [
     {
-      "type": "benefit",
-      "name": "Benefit",
+      "type": "product_benefit",
+      "name": "Product Benefit",
       "settings": [
         {
           "type": "text",
@@ -340,16 +340,16 @@
       "name": "Product Detail",
       "blocks": [
         {
-          "type": "benefit"
+          "type": "product_benefit"
         },
         {
-          "type": "benefit"
+          "type": "product_benefit"
         },
         {
-          "type": "benefit"
+          "type": "product_benefit"
         },
         {
-          "type": "benefit"
+          "type": "product_benefit"
         }
       ]
     }

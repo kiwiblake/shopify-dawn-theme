@@ -12,7 +12,7 @@
       "type": "pharmaco-product-detail",
       "blocks": {
         "benefit_1": {
-          "type": "benefit",
+          "type": "product_benefit",
           "settings": {
             "title": "Global Leader",
             "description": "First-line treatment choice in the UK and worldwide",
@@ -20,7 +20,7 @@
           }
         },
         "benefit_2": {
-          "type": "benefit",
+          "type": "product_benefit",
           "settings": {
             "title": "Easy Application",
             "description": "Simple gel that absorbs quickly into the skin",
@@ -28,7 +28,7 @@
           }
         },
         "benefit_3": {
-          "type": "benefit",
+          "type": "product_benefit",
           "settings": {
             "title": "Flexible Dosing",
             "description": "Adjustable dosing to meet individual needs",
@@ -36,7 +36,7 @@
           }
         },
         "benefit_4": {
-          "type": "benefit",
+          "type": "product_benefit",
           "settings": {
             "title": "Fully Funded",
             "description": "Available and fully funded in New Zealand",

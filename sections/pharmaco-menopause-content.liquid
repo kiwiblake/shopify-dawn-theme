@@ -22,7 +22,7 @@
       <div style="display: grid; gap: 1.5rem; margin-bottom: 3rem;">
         {% for block in section.blocks %}
           {% case block.type %}
-            {% when 'stage' %}
+            {% when 'menopause_stage' %}
               <div {{ block.shopify_attributes }} style="display: flex; gap: 1rem; padding: 1rem; background: var(--color-white); border-radius: 0.5rem; border: 1px solid var(--color-gray-200);">
                 <div style="width: 2.5rem; height: 2.5rem; border-radius: 50%; background: linear-gradient(135deg, hsl(150, 45%, 90%) 0%, hsl(150, 40%, 95%) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                   <svg width="20" height="20" fill="none" stroke="hsl(150, 55%, 45%)" viewBox="0 0 24 24">
@@ -105,7 +105,7 @@
   ],
   "blocks": [
     {
-      "type": "stage",
+      "type": "menopause_stage",
       "name": "Menopause Stage",
       "settings": [
         {
@@ -129,21 +129,21 @@
       "name": "Menopause Content",
       "blocks": [
         {
-          "type": "stage",
+          "type": "menopause_stage",
           "settings": {
             "stage_name": "Perimenopause",
             "stage_description": "The transition phase leading up to menopause"
           }
         },
         {
-          "type": "stage",
+          "type": "menopause_stage",
           "settings": {
             "stage_name": "Menopause",
             "stage_description": "12 months without a menstrual period"
           }
         },
         {
-          "type": "stage",
+          "type": "menopause_stage",
           "settings": {
             "stage_name": "Postmenopause",
             "stage_description": "The years following menopause"

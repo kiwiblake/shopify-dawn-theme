@@ -12,21 +12,21 @@
       "type": "pharmaco-menopause-content",
       "blocks": {
         "stage_1": {
-          "type": "stage",
+          "type": "menopause_stage",
           "settings": {
             "stage_name": "Perimenopause",
             "stage_description": "The transition phase leading up to menopause"
           }
         },
         "stage_2": {
-          "type": "stage",
+          "type": "menopause_stage",
           "settings": {
             "stage_name": "Menopause",
             "stage_description": "12 months without a menstrual period"
           }
         },
         "stage_3": {
-          "type": "stage",
+          "type": "menopause_stage",
           "settings": {
             "stage_name": "Postmenopause",
             "stage_description": "The years following menopause"

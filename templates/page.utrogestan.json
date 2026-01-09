@@ -12,7 +12,7 @@
       "type": "pharmaco-product-detail",
       "blocks": {
         "benefit_1": {
-          "type": "benefit",
+          "type": "product_benefit",
           "settings": {
             "title": "Body-Identical",
             "description": "Chemically identical to your body's own progesterone",
@@ -20,7 +20,7 @@
           }
         },
         "benefit_2": {
-          "type": "benefit",
+          "type": "product_benefit",
           "settings": {
             "title": "Well Tolerated",
             "description": "Designed to work naturally with your body",
@@ -28,7 +28,7 @@
           }
         },
         "benefit_3": {
-          "type": "benefit",
+          "type": "product_benefit",
           "settings": {
             "title": "Market Leader",
             "description": "The trusted choice in New Zealand",
@@ -36,7 +36,7 @@
           }
         },
         "benefit_4": {
-          "type": "benefit",
+          "type": "product_benefit",
           "settings": {
             "title": "Quality Assured",
             "description": "Manufactured to the highest standards",
