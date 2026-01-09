@@ -1,0 +1,311 @@
+{% comment %}
+  Pharmaco Products Section
+  Features: 2-column product cards with logos, features, CTAs, color accents
+{% endcomment %}
+
+<section class="py-24 bg-white">
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16 animate-fade-in-up">
+      {% if section.settings.eyebrow_text %}
+        <span class="label-small text-purple mb-3 block">
+          {{ section.settings.eyebrow_text }}
+        </span>
+      {% endif %}
+
+      <h2 class="heading-section text-gray-900 mb-4">
+        {{ section.settings.heading }}
+      </h2>
+
+      {% if section.settings.subheading %}
+        <p class="body-regular text-gray-600">
+          {{ section.settings.subheading }}
+        </p>
+      {% endif %}
+    </div>
+
+    <!-- Product Cards -->
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'product_card' %}
+            <div
+              class="group relative rounded-2xl overflow-hidden bg-white border border-gray-200 shadow-soft hover:shadow-medium transition-all duration-500 animate-fade-in-up"
+              style="animation-delay: {{ forloop.index0 | times: 150 }}ms;"
+              {{ block.shopify_attributes }}
+            >
+              <!-- Color accent bar -->
+              <div class="h-2 {{ block.settings.color_scheme }}"></div>
+
+              <div class="p-8 md:p-10">
+                <!-- Logo -->
+                <div class="mb-6">
+                  {% if block.settings.product_logo %}
+                    <img
+                      src="{{ block.settings.product_logo | image_url: width: 300 }}"
+                      alt="{{ block.settings.product_name }}"
+                      class="w-auto h-12 object-contain"
+                      loading="lazy"
+                    >
+                  {% else %}
+                    <h3 class="font-display text-3xl font-bold uppercase">
+                      {{ block.settings.product_name }}
+                    </h3>
+                  {% endif %}
+
+                  {% if block.settings.tagline %}
+                    <span class="text-xs font-medium uppercase tracking-wider mt-3 block {{ block.settings.tagline_color }}">
+                      {{ block.settings.tagline }}
+                    </span>
+                  {% endif %}
+                </div>
+
+                <!-- Description -->
+                {% if block.settings.description %}
+                  <p class="text-gray-600 mb-6 leading-relaxed">
+                    {{ block.settings.description }}
+                  </p>
+                {% endif %}
+
+                <!-- Features -->
+                {% if block.settings.feature_1 or block.settings.feature_2 or block.settings.feature_3 %}
+                  <div class="flex flex-wrap gap-2 mb-8">
+                    {% if block.settings.feature_1 %}
+                      <span class="text-xs px-3 py-1 rounded-full {{ block.settings.feature_badge_style }}">
+                        {{ block.settings.feature_1 }}
+                      </span>
+                    {% endif %}
+                    {% if block.settings.feature_2 %}
+                      <span class="text-xs px-3 py-1 rounded-full {{ block.settings.feature_badge_style }}">
+                        {{ block.settings.feature_2 }}
+                      </span>
+                    {% endif %}
+                    {% if block.settings.feature_3 %}
+                      <span class="text-xs px-3 py-1 rounded-full {{ block.settings.feature_badge_style }}">
+                        {{ block.settings.feature_3 }}
+                      </span>
+                    {% endif %}
+                  </div>
+                {% endif %}
+
+                <!-- CTA -->
+                {% if block.settings.button_text and block.settings.button_link %}
+                  <a
+                    href="{{ block.settings.button_link }}"
+                    class="inline-flex items-center justify-center gap-2 {{ block.settings.button_style }} px-6 py-3 rounded-lg font-bold uppercase tracking-wide transition-all duration-300 group/btn"
+                  >
+                    {{ block.settings.button_text }}
+                    <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Pharmaco Products",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow_text",
+      "label": "Eyebrow Text",
+      "default": "Our Products"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Treatment Options for You"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Pharmaco offers trusted menopausal hormone therapy options to help you manage symptoms and feel your best."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product Name",
+          "default": "Estrogel"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_logo",
+          "label": "Product Logo"
+        },
+        {
+          "type": "text",
+          "id": "tagline",
+          "label": "Tagline",
+          "default": "The Global Leader"
+        },
+        {
+          "type": "select",
+          "id": "color_scheme",
+          "label": "Color Accent Bar",
+          "options": [
+            {
+              "value": "bg-gradient-teal",
+              "label": "Teal"
+            },
+            {
+              "value": "bg-gradient-purple",
+              "label": "Purple"
+            }
+          ],
+          "default": "bg-gradient-teal"
+        },
+        {
+          "type": "select",
+          "id": "tagline_color",
+          "label": "Tagline Color",
+          "options": [
+            {
+              "value": "text-teal",
+              "label": "Teal"
+            },
+            {
+              "value": "text-purple",
+              "label": "Purple"
+            }
+          ],
+          "default": "text-teal"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "A convenient gel application for estrogen therapy. Fully funded and widely available in New Zealand."
+        },
+        {
+          "type": "header",
+          "content": "Features (up to 3)"
+        },
+        {
+          "type": "text",
+          "id": "feature_1",
+          "label": "Feature 1",
+          "default": "Fully Funded"
+        },
+        {
+          "type": "text",
+          "id": "feature_2",
+          "label": "Feature 2",
+          "default": "Easy Application"
+        },
+        {
+          "type": "text",
+          "id": "feature_3",
+          "label": "Feature 3",
+          "default": "Flexible Dosing"
+        },
+        {
+          "type": "select",
+          "id": "feature_badge_style",
+          "label": "Feature Badge Style",
+          "options": [
+            {
+              "value": "bg-teal-light text-teal-dark",
+              "label": "Teal"
+            },
+            {
+              "value": "bg-purple-light text-purple-dark",
+              "label": "Purple"
+            }
+          ],
+          "default": "bg-teal-light text-teal-dark"
+        },
+        {
+          "type": "header",
+          "content": "Call to Action"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Learn About Estrogel"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Button Style",
+          "options": [
+            {
+              "value": "bg-gradient-teal text-white hover:shadow-glow-teal",
+              "label": "Teal"
+            },
+            {
+              "value": "bg-gradient-purple text-white hover:shadow-glow-purple",
+              "label": "Purple"
+            }
+          ],
+          "default": "bg-gradient-teal text-white hover:shadow-glow-teal"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 2,
+  "presets": [
+    {
+      "name": "Pharmaco Products",
+      "blocks": [
+        {
+          "type": "product_card",
+          "settings": {
+            "product_name": "Estrogel",
+            "tagline": "The Global Leader",
+            "color_scheme": "bg-gradient-teal",
+            "tagline_color": "text-teal",
+            "description": "A convenient gel application for estrogen therapy. Fully funded and widely available in New Zealand.",
+            "feature_1": "Fully Funded",
+            "feature_2": "Easy Application",
+            "feature_3": "Flexible Dosing",
+            "feature_badge_style": "bg-teal-light text-teal-dark",
+            "button_text": "Learn About Estrogel",
+            "button_style": "bg-gradient-teal text-white hover:shadow-glow-teal"
+          }
+        },
+        {
+          "type": "product_card",
+          "settings": {
+            "product_name": "Utrogestan",
+            "tagline": "Market Leader in NZ",
+            "color_scheme": "bg-gradient-purple",
+            "tagline_color": "text-purple",
+            "description": "Body-identical progesterone for women with an intact uterus as part of menopausal hormone therapy.",
+            "feature_1": "Body-Identical",
+            "feature_2": "Well Tolerated",
+            "feature_3": "Trusted Choice",
+            "feature_badge_style": "bg-purple-light text-purple-dark",
+            "button_text": "Learn About Utrogestan",
+            "button_style": "bg-gradient-purple text-white hover:shadow-glow-purple"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

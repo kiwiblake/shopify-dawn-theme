@@ -5,7 +5,31 @@
       "Bash(git init:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git branch:*)"
+      "Bash(git branch:*)",
+      "Bash(gh auth:*)",
+      "Bash(brew install:*)",
+      "Bash(/opt/homebrew/bin/brew install:*)",
+      "Bash(/opt/homebrew/bin/gh auth status)",
+      "Bash(/opt/homebrew/bin/gh auth login)",
+      "Bash(/opt/homebrew/bin/gh repo create shopify-dawn-theme --public --source=. --description=\"Custom Shopify theme based on Dawn\" --push)",
+      "Bash(/opt/homebrew/bin/gh auth refresh -s workflow)",
+      "Bash(/opt/homebrew/bin/gh auth refresh -h github.com -s workflow)",
+      "Bash(git push:*)",
+      "Bash(/opt/homebrew/bin/gh auth setup-git)",
+      "Bash(/opt/homebrew/bin/brew tap shopify/shopify)",
+      "Bash(/opt/homebrew/bin/shopify version:*)",
+      "Bash(/opt/homebrew/bin/gh:*)",
+      "Bash(shopify version:*)",
+      "Bash(/opt/homebrew/bin/shopify auth logout:*)",
+      "Bash(/opt/homebrew/bin/shopify theme dev:*)",
+      "Bash(find:*)",
+      "Bash(npm install)",
+      "Bash(/opt/homebrew/bin/node:*)",
+      "Bash(/opt/homebrew/bin/npm --version)",
+      "Bash(/opt/homebrew/bin/npm install)",
+      "Bash(export PATH=\"/opt/homebrew/bin:$PATH\")",
+      "Bash(npm run build:*)",
+      "Bash(git rm:*)"
     ]
   }
 }

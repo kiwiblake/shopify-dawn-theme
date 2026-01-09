@@ -1,0 +1,207 @@
+{% comment %}
+  Pharmaco Women's Health Footer
+  Features: Purple gradient background, 4-column layout, product mandatories, legal links
+{% endcomment %}
+
+<footer class="bg-gradient-purple text-white">
+  <!-- Main Footer -->
+  <div class="container mx-auto px-4 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <!-- Brand Column -->
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+            <span class="text-white font-display text-lg font-bold">{{ section.settings.brand_initial | default: "W" }}</span>
+          </div>
+          <span class="font-display text-xl font-bold uppercase tracking-wide">
+            {{ section.settings.brand_name | default: "Women's Health" }}
+          </span>
+        </div>
+        <p class="text-white/70 text-sm leading-relaxed">
+          {{ section.settings.brand_description }}
+        </p>
+      </div>
+
+      <!-- Column Blocks -->
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'footer_column' %}
+            <div {{ block.shopify_attributes }}>
+              <h4 class="font-display text-lg font-bold uppercase tracking-wide mb-4">
+                {{ block.settings.title }}
+              </h4>
+              <ul class="space-y-2">
+                {% if block.settings.menu != blank %}
+                  {% for link in block.settings.menu.links %}
+                    <li>
+                      <a href="{{ link.url }}" class="text-white/70 hover:text-white transition-colors text-sm">
+                        {{ link.title }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                {% endif %}
+              </ul>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Product Mandatories -->
+  {% if section.settings.show_mandatories %}
+    <div class="border-t border-white/10">
+      <div class="container mx-auto px-4 py-6">
+        <div class="text-xs text-white/60 space-y-4">
+          {% if section.settings.estrogel_mandatory %}
+            <p>{{ section.settings.estrogel_mandatory }}</p>
+          {% endif %}
+          {% if section.settings.utrogestan_mandatory %}
+            <p>{{ section.settings.utrogestan_mandatory }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  <!-- Copyright -->
+  <div class="border-t border-white/10 bg-purple-dark/30">
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/50">
+        <p>
+          © {{ 'now' | date: '%Y' }} {{ section.settings.copyright_text | default: shop.name }}. All rights reserved.
+        </p>
+        <div class="flex gap-6">
+          {% if section.settings.privacy_link %}
+            <a href="{{ section.settings.privacy_link }}" class="hover:text-white/80 transition-colors">
+              Privacy Policy
+            </a>
+          {% endif %}
+          {% if section.settings.terms_link %}
+            <a href="{{ section.settings.terms_link }}" class="hover:text-white/80 transition-colors">
+              Terms of Use
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Pharmaco Footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Brand Section"
+    },
+    {
+      "type": "text",
+      "id": "brand_initial",
+      "label": "Brand Initial",
+      "default": "W",
+      "info": "Single letter for the circular icon"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name",
+      "default": "Women's Health"
+    },
+    {
+      "type": "textarea",
+      "id": "brand_description",
+      "label": "Brand Description",
+      "default": "Your trusted resource for menopause information and support. Navigate your journey with confidence."
+    },
+    {
+      "type": "header",
+      "content": "Product Mandatories"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_mandatories",
+      "label": "Show Product Mandatories",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "estrogel_mandatory",
+      "label": "Estrogel Mandatory Text",
+      "default": "Estrogel® (estradiol) is a prescription medicine used for the relief of menopausal symptoms associated with estrogen deficiency. Always read the label and use as directed. If symptoms persist, see your healthcare professional. TAPS NP23065 BES133 July 2025"
+    },
+    {
+      "type": "textarea",
+      "id": "utrogestan_mandatory",
+      "label": "Utrogestan Mandatory Text",
+      "default": "Utrogestan® (progesterone) is a prescription medicine used as part of menopausal hormone therapy in women with an intact uterus. Always read the label and use as directed. If symptoms persist, see your healthcare professional. TAPS NP23065 BES133 July 2025"
+    },
+    {
+      "type": "header",
+      "content": "Copyright & Legal"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright Text",
+      "default": "Pharmaco (NZ) Ltd"
+    },
+    {
+      "type": "url",
+      "id": "privacy_link",
+      "label": "Privacy Policy Link"
+    },
+    {
+      "type": "url",
+      "id": "terms_link",
+      "label": "Terms of Use Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "footer_column",
+      "name": "Footer Column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Column Title",
+          "default": "Quick Links"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu",
+          "info": "Select a menu to display in this column"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Pharmaco Footer",
+      "blocks": [
+        {
+          "type": "footer_column",
+          "settings": {
+            "title": "Information"
+          }
+        },
+        {
+          "type": "footer_column",
+          "settings": {
+            "title": "Our Products"
+          }
+        },
+        {
+          "type": "footer_column",
+          "settings": {
+            "title": "Pharmaco"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,260 @@
+{% comment %}
+  Pharmaco Quiz CTA Section
+  Features: Centered CTA with gradient background
+{% endcomment %}
+
+<section class="py-24 {{ section.settings.background_style }}">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center animate-fade-in-up">
+      {% if section.settings.eyebrow_text %}
+        <span class="label-small {{ section.settings.eyebrow_color }} mb-4 block">
+          {{ section.settings.eyebrow_text }}
+        </span>
+      {% endif %}
+
+      <h2 class="heading-section {{ section.settings.heading_color }} mb-6">
+        {{ section.settings.heading }}
+      </h2>
+
+      {% if section.settings.description %}
+        <p class="body-large {{ section.settings.description_color }} mb-8 max-w-2xl mx-auto">
+          {{ section.settings.description }}
+        </p>
+      {% endif %}
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        {% if section.settings.primary_button_text and section.settings.primary_button_link %}
+          <a
+            href="{{ section.settings.primary_button_link }}"
+            class="inline-flex items-center justify-center gap-2 {{ section.settings.primary_button_style }} px-8 py-4 rounded-lg font-bold uppercase tracking-wide text-lg transition-all duration-300 group"
+          >
+            {{ section.settings.primary_button_text }}
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        {% endif %}
+
+        {% if section.settings.secondary_button_text and section.settings.secondary_button_link %}
+          <a
+            href="{{ section.settings.secondary_button_link }}"
+            class="inline-flex items-center justify-center {{ section.settings.secondary_button_style }} px-8 py-4 rounded-lg font-bold uppercase tracking-wide text-lg transition-all duration-300"
+          >
+            {{ section.settings.secondary_button_text }}
+          </a>
+        {% endif %}
+      </div>
+
+      {% if section.settings.disclaimer_text %}
+        <p class="text-sm {{ section.settings.disclaimer_color }} mt-6 max-w-xl mx-auto">
+          {{ section.settings.disclaimer_text }}
+        </p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Pharmaco Quiz CTA",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Style"
+    },
+    {
+      "type": "select",
+      "id": "background_style",
+      "label": "Background Style",
+      "options": [
+        {
+          "value": "bg-white",
+          "label": "White"
+        },
+        {
+          "value": "bg-gray-50",
+          "label": "Light Gray"
+        },
+        {
+          "value": "bg-gradient-purple text-white",
+          "label": "Purple Gradient"
+        },
+        {
+          "value": "bg-gradient-teal text-white",
+          "label": "Teal Gradient"
+        },
+        {
+          "value": "bg-gradient-subtle",
+          "label": "Subtle Gradient"
+        }
+      ],
+      "default": "bg-gradient-subtle"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow_text",
+      "label": "Eyebrow Text",
+      "default": "Track Your Journey"
+    },
+    {
+      "type": "select",
+      "id": "eyebrow_color",
+      "label": "Eyebrow Color",
+      "options": [
+        {
+          "value": "text-purple",
+          "label": "Purple"
+        },
+        {
+          "value": "text-teal",
+          "label": "Teal"
+        },
+        {
+          "value": "text-white",
+          "label": "White"
+        }
+      ],
+      "default": "text-purple"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Ready to Take Control?"
+    },
+    {
+      "type": "select",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "options": [
+        {
+          "value": "text-gray-900",
+          "label": "Dark Gray"
+        },
+        {
+          "value": "text-white",
+          "label": "White"
+        }
+      ],
+      "default": "text-gray-900"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Track your symptoms and share insights with your healthcare provider. Our quiz takes just 5 minutes."
+    },
+    {
+      "type": "select",
+      "id": "description_color",
+      "label": "Description Color",
+      "options": [
+        {
+          "value": "text-gray-600",
+          "label": "Gray"
+        },
+        {
+          "value": "text-white/80",
+          "label": "White (80%)"
+        }
+      ],
+      "default": "text-gray-600"
+    },
+    {
+      "type": "header",
+      "content": "Primary Button"
+    },
+    {
+      "type": "text",
+      "id": "primary_button_text",
+      "label": "Button Text",
+      "default": "Start the Quiz"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "primary_button_style",
+      "label": "Button Style",
+      "options": [
+        {
+          "value": "bg-gradient-purple text-white hover:shadow-glow-purple",
+          "label": "Purple"
+        },
+        {
+          "value": "bg-gradient-teal text-white hover:shadow-glow-teal",
+          "label": "Teal"
+        }
+      ],
+      "default": "bg-gradient-purple text-white hover:shadow-glow-purple"
+    },
+    {
+      "type": "header",
+      "content": "Secondary Button (Optional)"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "secondary_button_style",
+      "label": "Button Style",
+      "options": [
+        {
+          "value": "border-2 border-purple text-purple hover:bg-purple hover:text-white",
+          "label": "Purple Outline"
+        },
+        {
+          "value": "border-2 border-white text-white hover:bg-white hover:text-purple",
+          "label": "White Outline"
+        }
+      ],
+      "default": "border-2 border-purple text-purple hover:bg-purple hover:text-white"
+    },
+    {
+      "type": "header",
+      "content": "Disclaimer (Optional)"
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer_text",
+      "label": "Disclaimer Text"
+    },
+    {
+      "type": "select",
+      "id": "disclaimer_color",
+      "label": "Disclaimer Color",
+      "options": [
+        {
+          "value": "text-gray-500",
+          "label": "Gray"
+        },
+        {
+          "value": "text-white/60",
+          "label": "White (60%)"
+        }
+      ],
+      "default": "text-gray-500"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pharmaco Quiz CTA"
+    }
+  ]
+}
+{% endschema %}
