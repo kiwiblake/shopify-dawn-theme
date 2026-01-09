@@ -1,0 +1,156 @@
+{% comment %}
+  Pharmaco Menopause Content Section
+  Content for the menopause information page
+{% endcomment %}
+
+<section class="pharmaco-menopause-content" style="padding: 5rem 0;">
+  <div class="pharmaco-container">
+    <div style="max-width: 48rem; margin-left: auto; margin-right: auto;">
+
+      {% if section.settings.intro_text %}
+        <div style="background: linear-gradient(135deg, hsl(0, 75%, 95%) 0%, hsl(0, 70%, 97%) 100%); border-radius: 1rem; padding: 2rem; margin-bottom: 3rem; border: 1px solid hsl(0, 70%, 85%);">
+          <p style="color: var(--color-gray-700); font-style: italic; margin: 0; line-height: 1.75;">
+            {{ section.settings.intro_text }}
+          </p>
+        </div>
+      {% endif %}
+
+      <h2 class="pharmaco-heading-card" id="stages" style="margin-bottom: 2rem; color: var(--color-gray-900);">
+        Stages of Menopause
+      </h2>
+
+      <div style="display: grid; gap: 1.5rem; margin-bottom: 3rem;">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'stage' %}
+              <div {{ block.shopify_attributes }} style="display: flex; gap: 1rem; padding: 1rem; background: var(--color-white); border-radius: 0.5rem; border: 1px solid var(--color-gray-200);">
+                <div style="width: 2.5rem; height: 2.5rem; border-radius: 50%; background: linear-gradient(135deg, hsl(150, 45%, 90%) 0%, hsl(150, 40%, 95%) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <svg width="20" height="20" fill="none" stroke="hsl(150, 55%, 45%)" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 style="font-family: var(--font-display); font-weight: 500; text-transform: uppercase; color: var(--color-gray-900); margin-bottom: 0.25rem;">
+                    {{ block.settings.stage_name }}
+                  </h3>
+                  <p style="font-size: 0.875rem; color: var(--color-gray-600); margin: 0;">
+                    {{ block.settings.stage_description }}
+                  </p>
+                </div>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+
+      <h2 class="pharmaco-heading-card" id="treatment" style="margin-bottom: 1.5rem; color: var(--color-gray-900);">
+        Treatment Options
+      </h2>
+
+      {% if section.settings.treatment_text %}
+        <p style="color: var(--color-gray-700); margin-bottom: 2rem; line-height: 1.75;">
+          {{ section.settings.treatment_text }}
+        </p>
+      {% endif %}
+
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        {% if section.settings.estrogel_link %}
+          <a href="{{ section.settings.estrogel_link }}" class="pharmaco-btn pharmaco-btn-secondary">
+            Learn About Estrogel
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        {% endif %}
+        {% if section.settings.utrogestan_link %}
+          <a href="{{ section.settings.utrogestan_link }}" class="pharmaco-btn pharmaco-btn-primary">
+            Learn About Utrogestan
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Menopause Content",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "intro_text",
+      "label": "Introduction Text",
+      "default": "Menopause typically occurs between ages 45-55, with the average age being 51. It's diagnosed after you've gone 12 consecutive months without a menstrual period."
+    },
+    {
+      "type": "textarea",
+      "id": "treatment_text",
+      "label": "Treatment Text",
+      "default": "Various treatment options are available to help manage menopause symptoms. Menopausal Hormone Therapy (MHT) is one effective option that many women consider."
+    },
+    {
+      "type": "url",
+      "id": "estrogel_link",
+      "label": "Estrogel Link"
+    },
+    {
+      "type": "url",
+      "id": "utrogestan_link",
+      "label": "Utrogestan Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stage",
+      "name": "Menopause Stage",
+      "settings": [
+        {
+          "type": "text",
+          "id": "stage_name",
+          "label": "Stage Name",
+          "default": "Stage Name"
+        },
+        {
+          "type": "textarea",
+          "id": "stage_description",
+          "label": "Stage Description",
+          "default": "Description of this stage"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "Menopause Content",
+      "blocks": [
+        {
+          "type": "stage",
+          "settings": {
+            "stage_name": "Perimenopause",
+            "stage_description": "The transition phase leading up to menopause"
+          }
+        },
+        {
+          "type": "stage",
+          "settings": {
+            "stage_name": "Menopause",
+            "stage_description": "12 months without a menstrual period"
+          }
+        },
+        {
+          "type": "stage",
+          "settings": {
+            "stage_name": "Postmenopause",
+            "stage_description": "The years following menopause"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

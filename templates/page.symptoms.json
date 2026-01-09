@@ -1,0 +1,83 @@
+{
+  "sections": {
+    "pharmaco_page_hero": {
+      "type": "pharmaco-page-hero",
+      "settings": {
+        "eyebrow_text": "Know the Signs",
+        "heading": "Symptoms of Menopause",
+        "description": "Every woman's experience is unique. Learn about the common symptoms and understand what your body may be telling you."
+      }
+    },
+    "pharmaco_symptoms_grid": {
+      "type": "pharmaco-symptoms-grid",
+      "blocks": {
+        "symptom_1": {
+          "type": "symptom",
+          "settings": {
+            "symptom_name": "Hot Flushes",
+            "symptom_description": "Sudden feelings of warmth, often most intense over the face, neck and chest",
+            "icon_svg": "<svg width=\"24\" height=\"24\" fill=\"none\" stroke=\"hsl(0, 70%, 60%)\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z\"/><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z\"/></svg>"
+          }
+        },
+        "symptom_2": {
+          "type": "symptom",
+          "settings": {
+            "symptom_name": "Night Sweats",
+            "symptom_description": "Episodes of sweating during sleep that can disrupt rest",
+            "icon_svg": "<svg width=\"24\" height=\"24\" fill=\"none\" stroke=\"hsl(240, 60%, 50%)\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z\"/></svg>"
+          }
+        },
+        "symptom_3": {
+          "type": "symptom",
+          "settings": {
+            "symptom_name": "Sleep Problems",
+            "symptom_description": "Difficulty falling asleep or staying asleep throughout the night",
+            "icon_svg": "<svg width=\"24\" height=\"24\" fill=\"none\" stroke=\"hsl(240, 60%, 50%)\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z\"/></svg>"
+          }
+        },
+        "symptom_4": {
+          "type": "symptom",
+          "settings": {
+            "symptom_name": "Mood Changes",
+            "symptom_description": "Experiencing irritability, anxiety, or low mood more frequently",
+            "icon_svg": "<svg width=\"24\" height=\"24\" fill=\"none\" stroke=\"hsl(280, 60%, 50%)\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z\"/></svg>"
+          }
+        },
+        "symptom_5": {
+          "type": "symptom",
+          "settings": {
+            "symptom_name": "Vaginal Dryness",
+            "symptom_description": "Decreased moisture and elasticity in vaginal tissues",
+            "icon_svg": "<svg width=\"24\" height=\"24\" fill=\"none\" stroke=\"hsl(180, 60%, 50%)\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 13.125C3 13.625 5.25 18 12 21c6.75-3 9-7.375 9-7.875s-2.25-7.125-9-7.125S3 12.625 3 13.125z\"/></svg>"
+          }
+        },
+        "symptom_6": {
+          "type": "symptom",
+          "settings": {
+            "symptom_name": "Weight Gain",
+            "symptom_description": "Changes in metabolism that may lead to weight gain, especially around the abdomen",
+            "icon_svg": "<svg width=\"24\" height=\"24\" fill=\"none\" stroke=\"hsl(0, 70%, 60%)\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg>"
+          }
+        }
+      },
+      "block_order": [
+        "symptom_1",
+        "symptom_2",
+        "symptom_3",
+        "symptom_4",
+        "symptom_5",
+        "symptom_6"
+      ],
+      "settings": {
+        "show_cta": true,
+        "cta_text": "Track your symptoms and share them with your healthcare professional",
+        "cta_button_text": "Start the Quiz",
+        "cta_link": "/pages/quiz"
+      }
+    }
+  },
+  "order": [
+    "pharmaco_page_hero",
+    "pharmaco_symptoms_grid"
+  ]
+}

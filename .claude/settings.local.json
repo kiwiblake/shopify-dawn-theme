@@ -30,7 +30,10 @@
       "Bash(export PATH=\"/opt/homebrew/bin:$PATH\")",
       "Bash(npm run build:*)",
       "Bash(git rm:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(/opt/homebrew/bin/npm run build)",
+      "Bash(npx tailwindcss:*)",
+      "Bash(wc:*)"
     ]
   }
 }

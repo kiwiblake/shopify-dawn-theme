@@ -1,0 +1,57 @@
+{% comment %}
+  Pharmaco Page Hero
+  Simple hero section for content pages
+{% endcomment %}
+
+<section class="pharmaco-page-hero pharmaco-gradient-hero">
+  <div class="pharmaco-container" style="padding-top: 8rem; padding-bottom: 4rem;">
+    <div class="pharmaco-page-hero__content pharmaco-animate-fade-in-up" style="max-width: 48rem; margin-left: auto; margin-right: auto; text-align: center;">
+      {% if section.settings.eyebrow_text %}
+        <span class="pharmaco-label-small" style="color: var(--color-teal); margin-bottom: 1rem; display: block;">
+          {{ section.settings.eyebrow_text }}
+        </span>
+      {% endif %}
+
+      <h1 class="pharmaco-heading-display" style="color: var(--color-white); margin-bottom: 1.5rem;">
+        {{ section.settings.heading }}
+      </h1>
+
+      {% if section.settings.description %}
+        <p class="pharmaco-page-hero__description" style="font-size: var(--font-size-lg); line-height: 1.75; color: rgba(255, 255, 255, 0.9);">
+          {{ section.settings.description }}
+        </p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow_text",
+      "label": "Eyebrow Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Page Title",
+      "default": "Page Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Page description goes here"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page Hero"
+    }
+  ]
+}
+{% endschema %}

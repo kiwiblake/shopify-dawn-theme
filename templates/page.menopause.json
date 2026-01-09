@@ -1,0 +1,53 @@
+{
+  "sections": {
+    "pharmaco_page_hero": {
+      "type": "pharmaco-page-hero",
+      "settings": {
+        "eyebrow_text": "Understanding Your Body",
+        "heading": "What is Menopause?",
+        "description": "Menopause is a natural biological process marking the end of menstrual cycles. Understanding this transition helps you navigate it with confidence."
+      }
+    },
+    "pharmaco_menopause_content": {
+      "type": "pharmaco-menopause-content",
+      "blocks": {
+        "stage_1": {
+          "type": "stage",
+          "settings": {
+            "stage_name": "Perimenopause",
+            "stage_description": "The transition phase leading up to menopause"
+          }
+        },
+        "stage_2": {
+          "type": "stage",
+          "settings": {
+            "stage_name": "Menopause",
+            "stage_description": "12 months without a menstrual period"
+          }
+        },
+        "stage_3": {
+          "type": "stage",
+          "settings": {
+            "stage_name": "Postmenopause",
+            "stage_description": "The years following menopause"
+          }
+        }
+      },
+      "block_order": [
+        "stage_1",
+        "stage_2",
+        "stage_3"
+      ],
+      "settings": {
+        "intro_text": "Menopause typically occurs between ages 45-55, with the average age being 51. It's diagnosed after you've gone 12 consecutive months without a menstrual period.",
+        "treatment_text": "Various treatment options are available to help manage menopause symptoms. Menopausal Hormone Therapy (MHT) is one effective option that many women consider.",
+        "estrogel_link": "/pages/estrogel",
+        "utrogestan_link": "/pages/utrogestan"
+      }
+    }
+  },
+  "order": [
+    "pharmaco_page_hero",
+    "pharmaco_menopause_content"
+  ]
+}

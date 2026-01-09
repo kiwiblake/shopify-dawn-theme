@@ -1,0 +1,113 @@
+{% comment %}
+  Pharmaco Symptoms Grid
+  Grid of symptoms with icons
+{% endcomment %}
+
+<section class="pharmaco-symptoms-grid" style="padding: 5rem 0;">
+  <div class="pharmaco-container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 80rem; margin-left: auto; margin-right: auto;">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'symptom' %}
+            <div {{ block.shopify_attributes }} class="pharmaco-animate-fade-in-up" style="background: var(--color-white); border-radius: 0.75rem; padding: 1.5rem; border: 1px solid var(--color-gray-200); box-shadow: var(--shadow-soft); transition: all var(--transition-base); animation-delay: {{ forloop.index0 | times: 100 }}ms;">
+              <div style="width: 3rem; height: 3rem; border-radius: 0.5rem; background: linear-gradient(135deg, hsl(0, 75%, 95%) 0%, hsl(0, 70%, 97%) 100%); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                {% if block.settings.icon_svg %}
+                  {{ block.settings.icon_svg }}
+                {% else %}
+                  <svg width="24" height="24" fill="none" stroke="hsl(0, 70%, 60%)" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/>
+                  </svg>
+                {% endif %}
+              </div>
+              <h3 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 500; text-transform: uppercase; color: var(--color-gray-900); margin-bottom: 0.5rem;">
+                {{ block.settings.symptom_name }}
+              </h3>
+              <p style="font-size: 0.875rem; color: var(--color-gray-600); line-height: 1.6; margin: 0;">
+                {{ block.settings.symptom_description }}
+              </p>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.show_cta %}
+      <div style="text-align: center; margin-top: 4rem;">
+        <p style="color: var(--color-gray-700); margin-bottom: 2rem; font-size: 1.125rem;">
+          {{ section.settings.cta_text }}
+        </p>
+        {% if section.settings.cta_link %}
+          <a href="{{ section.settings.cta_link }}" class="pharmaco-btn pharmaco-btn-primary pharmaco-btn-lg">
+            {{ section.settings.cta_button_text }}
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Symptoms Grid",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show Call to Action",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "Track your symptoms and share them with your healthcare professional"
+    },
+    {
+      "type": "text",
+      "id": "cta_button_text",
+      "label": "CTA Button Text",
+      "default": "Start the Quiz"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "symptom",
+      "name": "Symptom",
+      "settings": [
+        {
+          "type": "text",
+          "id": "symptom_name",
+          "label": "Symptom Name",
+          "default": "Symptom Name"
+        },
+        {
+          "type": "textarea",
+          "id": "symptom_description",
+          "label": "Symptom Description",
+          "default": "Description of the symptom"
+        },
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG",
+          "info": "Paste SVG code for the symptom icon"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Symptoms Grid"
+    }
+  ]
+}
+{% endschema %}
