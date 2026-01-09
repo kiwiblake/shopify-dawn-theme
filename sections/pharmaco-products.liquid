@@ -3,85 +3,83 @@
   Features: 2-column product cards with logos, features, CTAs, color accents
 {% endcomment %}
 
-<section class="py-24 bg-white">
-  <div class="container mx-auto px-4">
+<section class="pharmaco-products">
+  <div class="pharmaco-container">
     <!-- Section Header -->
-    <div class="text-center max-w-2xl mx-auto mb-16 animate-fade-in-up">
+    <div class="pharmaco-products__header pharmaco-animate-fade-in-up">
       {% if section.settings.eyebrow_text %}
-        <span class="label-small text-purple mb-3 block">
+        <span class="pharmaco-label-small pharmaco-products__eyebrow">
           {{ section.settings.eyebrow_text }}
         </span>
       {% endif %}
 
-      <h2 class="heading-section text-gray-900 mb-4">
+      <h2 class="pharmaco-heading-section pharmaco-products__heading">
         {{ section.settings.heading }}
       </h2>
 
       {% if section.settings.subheading %}
-        <p class="body-regular text-gray-600">
+        <p class="pharmaco-body-regular pharmaco-products__subheading">
           {{ section.settings.subheading }}
         </p>
       {% endif %}
     </div>
 
     <!-- Product Cards -->
-    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+    <div class="pharmaco-products__grid">
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'product_card' %}
             <div
-              class="group relative rounded-2xl overflow-hidden bg-white border border-gray-200 shadow-soft hover:shadow-medium transition-all duration-500 animate-fade-in-up"
+              class="pharmaco-products__card pharmaco-animate-fade-in-up"
               style="animation-delay: {{ forloop.index0 | times: 150 }}ms;"
               {{ block.shopify_attributes }}
             >
               <!-- Color accent bar -->
-              <div class="h-2 {{ block.settings.color_scheme }}"></div>
+              <div class="pharmaco-products__card-accent {{ block.settings.color_scheme }}"></div>
 
-              <div class="p-8 md:p-10">
+              <div class="pharmaco-products__card-content">
                 <!-- Logo -->
-                <div class="mb-6">
-                  {% if block.settings.product_logo %}
-                    <img
-                      src="{{ block.settings.product_logo | image_url: width: 300 }}"
-                      alt="{{ block.settings.product_name }}"
-                      class="w-auto h-12 object-contain"
-                      loading="lazy"
-                    >
-                  {% else %}
-                    <h3 class="font-display text-3xl font-bold uppercase">
-                      {{ block.settings.product_name }}
-                    </h3>
-                  {% endif %}
+                {% if block.settings.product_logo %}
+                  <img
+                    src="{{ block.settings.product_logo | image_url: width: 300 }}"
+                    alt="{{ block.settings.product_name }}"
+                    class="pharmaco-products__card-logo"
+                    loading="lazy"
+                  >
+                {% else %}
+                  <h3 class="pharmaco-products__card-name">
+                    {{ block.settings.product_name }}
+                  </h3>
+                {% endif %}
 
-                  {% if block.settings.tagline %}
-                    <span class="text-xs font-medium uppercase tracking-wider mt-3 block {{ block.settings.tagline_color }}">
-                      {{ block.settings.tagline }}
-                    </span>
-                  {% endif %}
-                </div>
+                {% if block.settings.tagline %}
+                  <span class="pharmaco-products__card-tagline {{ block.settings.tagline_color }}">
+                    {{ block.settings.tagline }}
+                  </span>
+                {% endif %}
 
                 <!-- Description -->
                 {% if block.settings.description %}
-                  <p class="text-gray-600 mb-6 leading-relaxed">
+                  <p class="pharmaco-products__card-description">
                     {{ block.settings.description }}
                   </p>
                 {% endif %}
 
                 <!-- Features -->
                 {% if block.settings.feature_1 or block.settings.feature_2 or block.settings.feature_3 %}
-                  <div class="flex flex-wrap gap-2 mb-8">
+                  <div class="pharmaco-products__card-features">
                     {% if block.settings.feature_1 %}
-                      <span class="text-xs px-3 py-1 rounded-full {{ block.settings.feature_badge_style }}">
+                      <span class="pharmaco-products__card-feature-badge {{ block.settings.feature_badge_style }}">
                         {{ block.settings.feature_1 }}
                       </span>
                     {% endif %}
                     {% if block.settings.feature_2 %}
-                      <span class="text-xs px-3 py-1 rounded-full {{ block.settings.feature_badge_style }}">
+                      <span class="pharmaco-products__card-feature-badge {{ block.settings.feature_badge_style }}">
                         {{ block.settings.feature_2 }}
                       </span>
                     {% endif %}
                     {% if block.settings.feature_3 %}
-                      <span class="text-xs px-3 py-1 rounded-full {{ block.settings.feature_badge_style }}">
+                      <span class="pharmaco-products__card-feature-badge {{ block.settings.feature_badge_style }}">
                         {{ block.settings.feature_3 }}
                       </span>
                     {% endif %}
@@ -90,21 +88,21 @@
 
                 <!-- CTA -->
                 {% if block.settings.button_text and block.settings.button_link %}
-                  {% assign button_classes = '' %}
                   {% if block.settings.button_style == 'teal' %}
-                    {% assign button_classes = 'bg-gradient-teal text-white hover:shadow-glow-teal' %}
+                    <a href="{{ block.settings.button_link }}" class="pharmaco-products__card-cta pharmaco-gradient-teal">
+                      {{ block.settings.button_text }}
+                      <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                      </svg>
+                    </a>
                   {% elsif block.settings.button_style == 'purple' %}
-                    {% assign button_classes = 'bg-gradient-purple text-white hover:shadow-glow-purple' %}
+                    <a href="{{ block.settings.button_link }}" class="pharmaco-products__card-cta pharmaco-gradient-purple">
+                      {{ block.settings.button_text }}
+                      <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                      </svg>
+                    </a>
                   {% endif %}
-                  <a
-                    href="{{ block.settings.button_link }}"
-                    class="inline-flex items-center justify-center gap-2 {{ button_classes }} px-6 py-3 rounded-lg font-bold uppercase tracking-wide transition-all duration-300 group/btn"
-                  >
-                    {{ block.settings.button_text }}
-                    <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                    </svg>
-                  </a>
                 {% endif %}
               </div>
             </div>

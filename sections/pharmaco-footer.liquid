@@ -3,86 +3,72 @@
   Features: Purple gradient background, 4-column layout, product mandatories, legal links
 {% endcomment %}
 
-<footer class="bg-gradient-purple text-white">
+<footer class="pharmaco-footer pharmaco-gradient-footer">
   <!-- Main Footer -->
-  <div class="container mx-auto px-4 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+  <div class="pharmaco-container" style="padding-top: var(--spacing-4xl); padding-bottom: var(--spacing-xl);">
+    <div class="pharmaco-footer__main">
       <!-- Brand Column -->
-      <div class="lg:col-span-1">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-            <span class="text-white font-display text-lg font-bold">{{ section.settings.brand_initial | default: "W" }}</span>
+      <div class="pharmaco-footer__brand">
+        <div class="pharmaco-footer__brand-logo">
+          <div class="pharmaco-footer__brand-initial">
+            {{ section.settings.brand_initial | default: "W" }}
           </div>
-          <span class="font-display text-xl font-bold uppercase tracking-wide">
+          <span class="pharmaco-footer__brand-name">
             {{ section.settings.brand_name | default: "Women's Health" }}
           </span>
         </div>
-        <p class="text-white/70 text-sm leading-relaxed">
+        <p class="pharmaco-footer__brand-description">
           {{ section.settings.brand_description }}
         </p>
       </div>
 
       <!-- Column Blocks -->
-      {% for block in section.blocks %}
-        {% case block.type %}
-          {% when 'footer_column' %}
-            <div {{ block.shopify_attributes }}>
-              <h4 class="font-display text-lg font-bold uppercase tracking-wide mb-4">
-                {{ block.settings.title }}
-              </h4>
-              <ul class="space-y-2">
-                {% if block.settings.menu != blank %}
-                  {% for link in block.settings.menu.links %}
-                    <li>
-                      <a href="{{ link.url }}" class="text-white/70 hover:text-white transition-colors text-sm">
-                        {{ link.title }}
-                      </a>
-                    </li>
-                  {% endfor %}
-                {% endif %}
-              </ul>
-            </div>
-        {% endcase %}
-      {% endfor %}
+      <div class="pharmaco-footer__columns">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'footer_column' %}
+              <div {{ block.shopify_attributes }}>
+                <h4 class="pharmaco-footer__column-title">
+                  {{ block.settings.title }}
+                </h4>
+                <ul class="pharmaco-footer__column-menu">
+                  {% if block.settings.menu != blank %}
+                    {% for link in block.settings.menu.links %}
+                      <li class="pharmaco-footer__column-menu-item">
+                        <a href="{{ link.url }}" class="pharmaco-footer__column-menu-link">
+                          {{ link.title }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  {% endif %}
+                </ul>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 
   <!-- Product Mandatories -->
   {% if section.settings.show_mandatories %}
-    <div class="border-t border-white/10">
-      <div class="container mx-auto px-4 py-6">
-        <div class="text-xs text-white/60 space-y-4">
-          {% if section.settings.estrogel_mandatory %}
-            <p>{{ section.settings.estrogel_mandatory }}</p>
-          {% endif %}
-          {% if section.settings.utrogestan_mandatory %}
-            <p>{{ section.settings.utrogestan_mandatory }}</p>
-          {% endif %}
-        </div>
+    <div class="pharmaco-footer__mandatories">
+      <div class="pharmaco-container">
+        {% if section.settings.estrogel_mandatory %}
+          <p class="pharmaco-footer__mandatory">{{ section.settings.estrogel_mandatory }}</p>
+        {% endif %}
+        {% if section.settings.utrogestan_mandatory %}
+          <p class="pharmaco-footer__mandatory">{{ section.settings.utrogestan_mandatory }}</p>
+        {% endif %}
       </div>
     </div>
   {% endif %}
 
   <!-- Copyright -->
-  <div class="border-t border-white/10 bg-purple-dark/30">
-    <div class="container mx-auto px-4 py-4">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/50">
-        <p>
-          © {{ 'now' | date: '%Y' }} {{ section.settings.copyright_text | default: shop.name }}. All rights reserved.
-        </p>
-        <div class="flex gap-6">
-          {% if section.settings.privacy_link %}
-            <a href="{{ section.settings.privacy_link }}" class="hover:text-white/80 transition-colors">
-              Privacy Policy
-            </a>
-          {% endif %}
-          {% if section.settings.terms_link %}
-            <a href="{{ section.settings.terms_link }}" class="hover:text-white/80 transition-colors">
-              Terms of Use
-            </a>
-          {% endif %}
-        </div>
-      </div>
+  <div class="pharmaco-footer__bottom">
+    <div class="pharmaco-container">
+      <p class="pharmaco-footer__copyright">
+        © {{ 'now' | date: '%Y' }} {{ section.settings.copyright_text | default: shop.name }}. All rights reserved.
+      </p>
     </div>
   </div>
 </footer>

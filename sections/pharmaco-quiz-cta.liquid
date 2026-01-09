@@ -3,62 +3,53 @@
   Features: Centered CTA with gradient background
 {% endcomment %}
 
-<section class="py-24 {{ section.settings.background_style }}">
-  <div class="container mx-auto px-4">
-    <div class="max-w-3xl mx-auto text-center animate-fade-in-up">
+<section class="pharmaco-quiz-cta {{ section.settings.background_style }}">
+  <div class="pharmaco-container">
+    <div class="pharmaco-quiz-cta__content pharmaco-animate-fade-in-up">
       {% if section.settings.eyebrow_text %}
-        <span class="label-small {{ section.settings.eyebrow_color }} mb-4 block">
+        <span class="pharmaco-label-small pharmaco-quiz-cta__eyebrow {{ section.settings.eyebrow_color }}">
           {{ section.settings.eyebrow_text }}
         </span>
       {% endif %}
 
-      <h2 class="heading-section {{ section.settings.heading_color }} mb-6">
+      <h2 class="pharmaco-heading-section pharmaco-quiz-cta__heading {{ section.settings.heading_color }}">
         {{ section.settings.heading }}
       </h2>
 
       {% if section.settings.description %}
-        <p class="body-large {{ section.settings.description_color }} mb-8 max-w-2xl mx-auto">
+        <p class="pharmaco-quiz-cta__description {{ section.settings.description_color }}">
           {{ section.settings.description }}
         </p>
       {% endif %}
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <div class="pharmaco-quiz-cta__buttons">
         {% if section.settings.primary_button_text and section.settings.primary_button_link %}
-          {% assign primary_btn_classes = '' %}
           {% if section.settings.primary_button_style == 'purple' %}
-            {% assign primary_btn_classes = 'bg-gradient-purple text-white hover:shadow-glow-purple' %}
+            <a href="{{ section.settings.primary_button_link }}" class="pharmaco-btn pharmaco-btn-primary pharmaco-btn-lg">
+              {{ section.settings.primary_button_text }}
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
           {% elsif section.settings.primary_button_style == 'teal' %}
-            {% assign primary_btn_classes = 'bg-gradient-teal text-white hover:shadow-glow-teal' %}
+            <a href="{{ section.settings.primary_button_link }}" class="pharmaco-btn pharmaco-btn-secondary pharmaco-btn-lg">
+              {{ section.settings.primary_button_text }}
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
           {% endif %}
-          <a
-            href="{{ section.settings.primary_button_link }}"
-            class="inline-flex items-center justify-center gap-2 {{ primary_btn_classes }} px-8 py-4 rounded-lg font-bold uppercase tracking-wide text-lg transition-all duration-300 group"
-          >
-            {{ section.settings.primary_button_text }}
-            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-          </a>
         {% endif %}
 
         {% if section.settings.secondary_button_text and section.settings.secondary_button_link %}
-          {% assign secondary_btn_classes = '' %}
-          {% if section.settings.secondary_button_style == 'purple-outline' %}
-            {% assign secondary_btn_classes = 'border-2 border-purple text-purple hover:bg-purple hover:text-white' %}
-          {% elsif section.settings.secondary_button_style == 'white-outline' %}
-            {% assign secondary_btn_classes = 'border-2 border-white text-white hover:bg-white hover:text-purple' %}
-          {% endif %}
-          <a
-            href="{{ section.settings.secondary_button_link }}"
-            class="inline-flex items-center justify-center {{ secondary_btn_classes }} px-8 py-4 rounded-lg font-bold uppercase tracking-wide text-lg transition-all duration-300"
-          >
+          <a href="{{ section.settings.secondary_button_link }}" class="pharmaco-btn pharmaco-btn-outline pharmaco-btn-lg">
             {{ section.settings.secondary_button_text }}
           </a>
         {% endif %}
       </div>
 
       {% if section.settings.disclaimer_text %}
-        <p class="text-sm {{ section.settings.disclaimer_color }} mt-6 max-w-xl mx-auto">
+        <p class="pharmaco-quiz-cta__disclaimer {{ section.settings.disclaimer_color }}">
           {{ section.settings.disclaimer_text }}
         </p>
       {% endif %}
