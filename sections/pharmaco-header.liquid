@@ -12,13 +12,14 @@
   <!-- Pharmaco branding bar -->
   <div class="bg-gradient-purple text-white py-2">
     <div class="container mx-auto px-4 flex items-center justify-between">
-      <span class="text-xs font-medium tracking-wide opacity-90">
+      <span class="text-base font-medium tracking-wide opacity-95" style="font-size: 1.125rem;">
         {{ section.settings.branding_text }}
       </span>
       {% if section.settings.hcp_login_text and section.settings.hcp_login_link %}
         <a
           href="{{ section.settings.hcp_login_link }}"
-          class="text-xs font-medium hover:underline opacity-90 hover:opacity-100 transition-opacity"
+          class="text-base font-medium hover:underline opacity-95 hover:opacity-100 transition-opacity"
+          style="font-size: 1.125rem;"
         >
           {{ section.settings.hcp_login_text }}
         </a>
@@ -61,8 +62,9 @@
           {% for link in section.settings.menu.links %}
             <a
               href="{{ link.url }}"
-              class="px-4 py-2 rounded-lg transition-all duration-200 font-display uppercase text-sm tracking-wide"
-              :class="scrolled ? 'text-gray-700 hover:text-purple hover:bg-purple-light' : 'text-white hover:text-teal hover:bg-white/10'"
+              class="px-4 py-2 rounded-lg transition-all duration-200 font-display uppercase tracking-wide font-semibold"
+              style="font-size: 1.125rem;"
+              :class="scrolled ? 'text-gray-900 hover:text-purple hover:bg-purple-light' : 'text-white hover:text-teal hover:bg-white/15'"
             >
               {{ link.title }}
             </a>
@@ -117,7 +119,8 @@
       {% for link in section.settings.menu.links %}
         <a
           href="{{ link.url }}"
-          class="block py-3 px-4 rounded-lg transition-colors font-display uppercase tracking-wide text-gray-700 hover:bg-purple-light hover:text-purple"
+          class="block py-3 px-4 rounded-lg transition-colors font-display uppercase tracking-wide text-gray-900 hover:bg-purple-light hover:text-purple font-semibold"
+          style="font-size: 1.125rem;"
           @click="mobileMenuOpen = false"
         >
           {{ link.title }}
