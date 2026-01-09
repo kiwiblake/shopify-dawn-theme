@@ -61,15 +61,16 @@
   --spacing-4xl: 6rem;     /* 96px */
   --spacing-5xl: 8rem;     /* 128px */
 
-  /* Shadows - Enhanced with proper purple/teal glow */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-soft: 0 4px 20px -4px hsla(270, 65%, 35%, 0.15);
-  --shadow-medium: 0 8px 30px -8px hsla(270, 30%, 15%, 0.15);
-  --shadow-glow-purple: 0 0 40px -10px hsla(270, 65%, 35%, 0.4);
-  --shadow-glow-teal: 0 0 40px -10px hsla(180, 55%, 45%, 0.4);
+  /* Shadows - Enhanced with dramatic depth and purple/teal glow */
+  --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 6px 12px -2px rgba(0, 0, 0, 0.12), 0 3px 6px -2px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.15), 0 6px 12px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 24px 48px -8px rgba(0, 0, 0, 0.18), 0 12px 24px -6px rgba(0, 0, 0, 0.12);
+  --shadow-soft: 0 6px 30px -6px hsla(270, 65%, 35%, 0.2);
+  --shadow-medium: 0 10px 40px -10px hsla(270, 30%, 15%, 0.25);
+  --shadow-strong: 0 20px 60px -15px hsla(270, 40%, 20%, 0.35);
+  --shadow-glow-purple: 0 0 50px -12px hsla(270, 65%, 35%, 0.5);
+  --shadow-glow-teal: 0 0 50px -12px hsla(180, 55%, 45%, 0.5);
 
   /* Border radius */
   --radius-sm: 0.375rem;  /* 6px */
@@ -297,21 +298,23 @@ html {
 .pharmaco-btn-primary {
   background: linear-gradient(135deg, hsl(285, 50%, 55%) 0%, hsl(265, 60%, 40%) 100%);
   color: var(--color-white);
+  box-shadow: 0 4px 14px 0 hsla(270, 65%, 35%, 0.25);
 }
 
 .pharmaco-btn-primary:hover {
-  box-shadow: var(--shadow-glow-purple);
-  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-glow-purple), 0 6px 20px 0 hsla(270, 65%, 35%, 0.35);
+  transform: translateY(-3px) scale(1.03);
 }
 
 .pharmaco-btn-secondary {
   background: linear-gradient(135deg, hsl(180, 55%, 45%) 0%, hsl(175, 60%, 40%) 100%);
   color: var(--color-white);
+  box-shadow: 0 4px 14px 0 hsla(180, 55%, 45%, 0.25);
 }
 
 .pharmaco-btn-secondary:hover {
-  box-shadow: var(--shadow-glow-teal);
-  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-glow-teal), 0 6px 20px 0 hsla(180, 55%, 45%, 0.35);
+  transform: translateY(-3px) scale(1.03);
 }
 
 .pharmaco-btn-outline {
@@ -729,20 +732,34 @@ html {
 
 .pharmaco-hero__trust-item {
   text-align: center;
+  padding: 1.25rem 1.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all var(--transition-base);
+}
+
+.pharmaco-hero__trust-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .pharmaco-hero__trust-title {
   font-family: var(--font-display);
-  font-size: var(--font-size-2xl);
+  font-size: 2.5rem;
   font-weight: 700;
   color: var(--color-white);
   display: block;
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .pharmaco-hero__trust-subtitle {
-  font-size: var(--font-size-sm);
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
 }
 
 .pharmaco-hero__visual {
@@ -857,33 +874,57 @@ html {
 
 .pharmaco-info-cards__card {
   position: relative;
-  padding: var(--spacing-xl);
-  background: var(--color-white);
+  padding: 2rem;
+  background: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(270, 20%, 99%) 100%);
   border: 1px solid var(--color-gray-200);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-base);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   color: inherit;
   display: block;
+  overflow: hidden;
+}
+
+.pharmaco-info-cards__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, hsl(285, 50%, 55%) 0%, hsl(180, 55%, 45%) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
 }
 
 .pharmaco-info-cards__card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-purple-light);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-strong);
+  border-color: hsla(270, 65%, 35%, 0.3);
+}
+
+.pharmaco-info-cards__card:hover::before {
+  opacity: 1;
 }
 
 .pharmaco-info-cards__card-icon {
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-purple-light);
+  background: linear-gradient(135deg, hsla(285, 50%, 95%, 1) 0%, hsla(270, 50%, 92%, 1) 100%);
   border-radius: var(--radius-full);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: 1.25rem;
   color: var(--color-purple);
+  box-shadow: 0 4px 12px hsla(270, 65%, 35%, 0.12);
+  transition: all var(--transition-base);
+}
+
+.pharmaco-info-cards__card:hover .pharmaco-info-cards__card-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 6px 20px hsla(270, 65%, 35%, 0.2);
 }
 
 .pharmaco-info-cards__card-title {
@@ -942,29 +983,32 @@ html {
 
 .pharmaco-products__card {
   position: relative;
-  border-radius: var(--radius-xl);
+  border-radius: 1.25rem;
   overflow: hidden;
-  background: var(--color-white);
+  background: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(270, 20%, 99%) 100%);
   border: 1px solid var(--color-gray-200);
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-slow);
+  box-shadow: var(--shadow-medium);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .pharmaco-products__card:hover {
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong), 0 0 60px -15px hsla(270, 65%, 35%, 0.3);
+  border-color: hsla(270, 65%, 35%, 0.2);
 }
 
 .pharmaco-products__card-accent {
-  height: 0.5rem;
+  height: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .pharmaco-products__card-content {
-  padding: var(--spacing-2xl) var(--spacing-xl);
+  padding: 2.5rem 2rem;
 }
 
 @media (min-width: 768px) {
   .pharmaco-products__card-content {
-    padding: 2.5rem;
+    padding: 3rem 2.5rem;
   }
 }
 
@@ -1045,12 +1089,18 @@ html {
 
 .pharmaco-quiz-cta {
   padding: var(--spacing-4xl) 0;
+  position: relative;
 }
 
 .pharmaco-quiz-cta__content {
-  max-width: 48rem;
+  max-width: 52rem;
   margin: 0 auto;
   text-align: center;
+  padding: 3rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, hsl(270, 25%, 98%) 0%, hsl(270, 20%, 97%) 100%);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid hsla(270, 30%, 90%, 0.5);
 }
 
 .pharmaco-quiz-cta__eyebrow {
