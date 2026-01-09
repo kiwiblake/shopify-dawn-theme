@@ -2,52 +2,45 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
-    "footer": {
-      "type": "footer",
+    "pharmaco-footer": {
+      "type": "pharmaco-footer",
       "blocks": {
-        "footer-0": {
-          "type": "link_list",
+        "footer-col-1": {
+          "type": "footer_column",
           "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
+            "title": "Information"
           }
         },
-        "footer-1": {
-          "type": "link_list",
+        "footer-col-2": {
+          "type": "footer_column",
           "settings": {
-            "heading": "Info",
-            "menu": "footer"
+            "title": "Our Products"
           }
         },
-        "footer-2": {
-          "type": "text",
+        "footer-col-3": {
+          "type": "footer_column",
           "settings": {
-            "heading": "Our mission",
-            "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+            "title": "Pharmaco"
           }
         }
       },
       "block_order": [
-        "footer-0",
-        "footer-1",
-        "footer-2"
+        "footer-col-1",
+        "footer-col-2",
+        "footer-col-3"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
-        "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
-        "show_social": true,
-        "enable_country_selector": false,
-        "enable_language_selector": false,
-        "payment_enable": true,
-        "show_policy": false,
-        "margin_top": 48,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "brand_initial": "W",
+        "brand_name": "Women's Health",
+        "brand_description": "Your trusted resource for menopause information and support. Navigate your journey with confidence.",
+        "show_mandatories": true,
+        "estrogel_mandatory": "Estrogel® (estradiol) is a prescription medicine used for the relief of menopausal symptoms associated with estrogen deficiency. Always read the label and use as directed. If symptoms persist, see your healthcare professional. TAPS NP23065 BES133 July 2025",
+        "utrogestan_mandatory": "Utrogestan® (progesterone) is a prescription medicine used as part of menopausal hormone therapy in women with an intact uterus. Always read the label and use as directed. If symptoms persist, see your healthcare professional. TAPS NP23065 BES133 July 2025",
+        "copyright_text": "Pharmaco (NZ) Ltd"
       }
     }
   },
   "order": [
-    "footer"
+    "pharmaco-footer"
   ]
 }

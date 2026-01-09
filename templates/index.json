@@ -1,210 +1,165 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "pharmaco_hero": {
+      "type": "pharmaco-hero",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "trust_1": {
+          "type": "trust_indicator",
           "settings": {
-            "heading": "Image banner",
-            "heading_size": "h0"
+            "title": "Fully Funded",
+            "subtitle": "In New Zealand"
           }
         },
-        "text": {
-          "type": "text",
+        "trust_2": {
+          "type": "trust_indicator",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
+            "title": "Global Leader",
+            "subtitle": "In MHT"
           }
         },
-        "button": {
-          "type": "buttons",
+        "trust_3": {
+          "type": "trust_indicator",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "title": "Stat Dispensed",
+            "subtitle": "Available Now"
           }
         }
       },
       "block_order": [
-        "heading",
-        "text",
-        "button"
+        "trust_1",
+        "trust_2",
+        "trust_3"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "eyebrow_text": "Let's Talk Menopause",
+        "heading": "Navigate [highlight]Menopause[/highlight] with Confidence",
+        "subheading": "Empower your menopause journey in Aotearoa – evidence-based support and funded medicines.",
+        "primary_button_text": "Track Your Symptoms",
+        "primary_button_link": "",
+        "secondary_button_text": "Learn About Menopause",
+        "secondary_button_link": ""
       }
     },
-    "rich_text": {
-      "type": "rich-text",
+    "pharmaco_info_cards": {
+      "type": "pharmaco-info-cards",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "card_1": {
+          "type": "info_card",
           "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
+            "title": "What is Menopause?",
+            "description": "Learn about the natural transition and what to expect during this phase of life.",
+            "link": "",
+            "icon_svg": "<svg class=\"w-6 h-6 text-purple\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg>"
           }
         },
-        "text": {
-          "type": "text",
+        "card_2": {
+          "type": "info_card",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "title": "Stages of Menopause",
+            "description": "Understand perimenopause, menopause, and postmenopause and their differences.",
+            "link": "",
+            "icon_svg": "<svg class=\"w-6 h-6 text-purple\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z\"/></svg>"
+          }
+        },
+        "card_3": {
+          "type": "info_card",
+          "settings": {
+            "title": "Common Symptoms",
+            "description": "Recognize the signs and symptoms that many women experience during menopause.",
+            "link": "",
+            "icon_svg": "<svg class=\"w-6 h-6 text-purple\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z\"/></svg>"
+          }
+        },
+        "card_4": {
+          "type": "info_card",
+          "settings": {
+            "title": "Treatment Options",
+            "description": "Explore the various options available to help manage your symptoms effectively.",
+            "link": "",
+            "icon_svg": "<svg class=\"w-6 h-6 text-purple\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z\"/></svg>"
           }
         }
       },
       "block_order": [
-        "heading",
-        "text"
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
+        "eyebrow_text": "Learn More",
+        "heading": "Understanding Menopause",
+        "subheading": "Knowledge is power. Explore our resources to better understand menopause and how to navigate this transition."
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
-    "collage": {
-      "type": "collage",
+    "pharmaco_products": {
+      "type": "pharmaco-products",
       "blocks": {
-        "collection-0": {
-          "type": "collection",
+        "product_estrogel": {
+          "type": "product_card",
           "settings": {
-            "collection": ""
+            "product_name": "Estrogel",
+            "tagline": "The Global Leader",
+            "color_scheme": "bg-gradient-teal",
+            "tagline_color": "text-teal",
+            "description": "A convenient gel application for estrogen therapy. Fully funded and widely available in New Zealand.",
+            "feature_1": "Fully Funded",
+            "feature_2": "Easy Application",
+            "feature_3": "Flexible Dosing",
+            "feature_badge_style": "bg-teal-light text-teal-dark",
+            "button_text": "Learn About Estrogel",
+            "button_link": "",
+            "button_style": "bg-gradient-teal text-white hover:shadow-glow-teal"
           }
         },
-        "product": {
-          "type": "product",
+        "product_utrogestan": {
+          "type": "product_card",
           "settings": {
-            "product": "",
-            "second_image": false
-          }
-        },
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
+            "product_name": "Utrogestan",
+            "tagline": "Market Leader in NZ",
+            "color_scheme": "bg-gradient-purple",
+            "tagline_color": "text-purple",
+            "description": "Body-identical progesterone for women with an intact uterus as part of menopausal hormone therapy.",
+            "feature_1": "Body-Identical",
+            "feature_2": "Well Tolerated",
+            "feature_3": "Trusted Choice",
+            "feature_badge_style": "bg-purple-light text-purple-dark",
+            "button_text": "Learn About Utrogestan",
+            "button_link": "",
+            "button_style": "bg-gradient-purple text-white hover:shadow-glow-purple"
           }
         }
       },
       "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
+        "product_estrogel",
+        "product_utrogestan"
       ],
       "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "eyebrow_text": "Our Products",
+        "heading": "Treatment Options for You",
+        "subheading": "Pharmaco offers trusted menopausal hormone therapy options to help you manage symptoms and feel your best."
       }
     },
-    "video": {
-      "type": "video",
+    "pharmaco_quiz_cta": {
+      "type": "pharmaco-quiz-cta",
       "settings": {
-        "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "background_style": "bg-gradient-subtle",
+        "eyebrow_text": "Track Your Journey",
+        "eyebrow_color": "text-purple",
+        "heading": "Ready to Take Control?",
+        "heading_color": "text-gray-900",
+        "description": "Track your symptoms and share insights with your healthcare provider. Our quiz takes just 5 minutes.",
+        "description_color": "text-gray-600",
+        "primary_button_text": "Start the Quiz",
+        "primary_button_link": "",
+        "primary_button_style": "bg-gradient-purple text-white hover:shadow-glow-purple"
       }
     }
   },
   "order": [
-    "image_banner",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "pharmaco_hero",
+    "pharmaco_info_cards",
+    "pharmaco_products",
+    "pharmaco_quiz_cta"
   ]
 }
