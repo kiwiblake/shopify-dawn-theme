@@ -109,7 +109,7 @@
             "feature_badge_style": "bg-teal-light text-teal-dark",
             "button_text": "Learn About Estrogel",
             "button_link": "",
-            "button_style": "bg-gradient-teal text-white hover:shadow-glow-teal"
+            "button_style": "teal"
           }
         },
         "product_utrogestan": {
@@ -126,7 +126,7 @@
             "feature_badge_style": "bg-purple-light text-purple-dark",
             "button_text": "Learn About Utrogestan",
             "button_link": "",
-            "button_style": "bg-gradient-purple text-white hover:shadow-glow-purple"
+            "button_style": "purple"
           }
         }
       },
@@ -152,7 +152,7 @@
         "description_color": "text-gray-600",
         "primary_button_text": "Start the Quiz",
         "primary_button_link": "",
-        "primary_button_style": "bg-gradient-purple text-white hover:shadow-glow-purple"
+        "primary_button_style": "purple"
       }
     }
   },

@@ -24,9 +24,15 @@
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
         {% if section.settings.primary_button_text and section.settings.primary_button_link %}
+          {% assign primary_btn_classes = '' %}
+          {% if section.settings.primary_button_style == 'purple' %}
+            {% assign primary_btn_classes = 'bg-gradient-purple text-white hover:shadow-glow-purple' %}
+          {% elsif section.settings.primary_button_style == 'teal' %}
+            {% assign primary_btn_classes = 'bg-gradient-teal text-white hover:shadow-glow-teal' %}
+          {% endif %}
           <a
             href="{{ section.settings.primary_button_link }}"
-            class="inline-flex items-center justify-center gap-2 {{ section.settings.primary_button_style }} px-8 py-4 rounded-lg font-bold uppercase tracking-wide text-lg transition-all duration-300 group"
+            class="inline-flex items-center justify-center gap-2 {{ primary_btn_classes }} px-8 py-4 rounded-lg font-bold uppercase tracking-wide text-lg transition-all duration-300 group"
           >
             {{ section.settings.primary_button_text }}
             <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -36,9 +42,15 @@
         {% endif %}
 
         {% if section.settings.secondary_button_text and section.settings.secondary_button_link %}
+          {% assign secondary_btn_classes = '' %}
+          {% if section.settings.secondary_button_style == 'purple-outline' %}
+            {% assign secondary_btn_classes = 'border-2 border-purple text-purple hover:bg-purple hover:text-white' %}
+          {% elsif section.settings.secondary_button_style == 'white-outline' %}
+            {% assign secondary_btn_classes = 'border-2 border-white text-white hover:bg-white hover:text-purple' %}
+          {% endif %}
           <a
             href="{{ section.settings.secondary_button_link }}"
-            class="inline-flex items-center justify-center {{ section.settings.secondary_button_style }} px-8 py-4 rounded-lg font-bold uppercase tracking-wide text-lg transition-all duration-300"
+            class="inline-flex items-center justify-center {{ secondary_btn_classes }} px-8 py-4 rounded-lg font-bold uppercase tracking-wide text-lg transition-all duration-300"
           >
             {{ section.settings.secondary_button_text }}
           </a>
@@ -185,15 +197,15 @@
       "label": "Button Style",
       "options": [
         {
-          "value": "bg-gradient-purple text-white hover:shadow-glow-purple",
+          "value": "purple",
           "label": "Purple"
         },
         {
-          "value": "bg-gradient-teal text-white hover:shadow-glow-teal",
+          "value": "teal",
           "label": "Teal"
         }
       ],
-      "default": "bg-gradient-purple text-white hover:shadow-glow-purple"
+      "default": "purple"
     },
     {
       "type": "header",
@@ -215,15 +227,15 @@
       "label": "Button Style",
       "options": [
         {
-          "value": "border-2 border-purple text-purple hover:bg-purple hover:text-white",
+          "value": "purple-outline",
           "label": "Purple Outline"
         },
         {
-          "value": "border-2 border-white text-white hover:bg-white hover:text-purple",
+          "value": "white-outline",
           "label": "White Outline"
         }
       ],
-      "default": "border-2 border-purple text-purple hover:bg-purple hover:text-white"
+      "default": "purple-outline"
     },
     {
       "type": "header",

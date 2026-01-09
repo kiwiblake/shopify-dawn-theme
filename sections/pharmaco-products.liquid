@@ -90,9 +90,15 @@
 
                 <!-- CTA -->
                 {% if block.settings.button_text and block.settings.button_link %}
+                  {% assign button_classes = '' %}
+                  {% if block.settings.button_style == 'teal' %}
+                    {% assign button_classes = 'bg-gradient-teal text-white hover:shadow-glow-teal' %}
+                  {% elsif block.settings.button_style == 'purple' %}
+                    {% assign button_classes = 'bg-gradient-purple text-white hover:shadow-glow-purple' %}
+                  {% endif %}
                   <a
                     href="{{ block.settings.button_link }}"
-                    class="inline-flex items-center justify-center gap-2 {{ block.settings.button_style }} px-6 py-3 rounded-lg font-bold uppercase tracking-wide transition-all duration-300 group/btn"
+                    class="inline-flex items-center justify-center gap-2 {{ button_classes }} px-6 py-3 rounded-lg font-bold uppercase tracking-wide transition-all duration-300 group/btn"
                   >
                     {{ block.settings.button_text }}
                     <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -254,15 +260,15 @@
           "label": "Button Style",
           "options": [
             {
-              "value": "bg-gradient-teal text-white hover:shadow-glow-teal",
+              "value": "teal",
               "label": "Teal"
             },
             {
-              "value": "bg-gradient-purple text-white hover:shadow-glow-purple",
+              "value": "purple",
               "label": "Purple"
             }
           ],
-          "default": "bg-gradient-teal text-white hover:shadow-glow-teal"
+          "default": "teal"
         }
       ]
     }
@@ -285,7 +291,7 @@
             "feature_3": "Flexible Dosing",
             "feature_badge_style": "bg-teal-light text-teal-dark",
             "button_text": "Learn About Estrogel",
-            "button_style": "bg-gradient-teal text-white hover:shadow-glow-teal"
+            "button_style": "teal"
           }
         },
         {
@@ -301,7 +307,7 @@
             "feature_3": "Trusted Choice",
             "feature_badge_style": "bg-purple-light text-purple-dark",
             "button_text": "Learn About Utrogestan",
-            "button_style": "bg-gradient-purple text-white hover:shadow-glow-purple"
+            "button_style": "purple"
           }
         }
       ]
