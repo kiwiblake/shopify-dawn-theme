@@ -644,6 +644,7 @@ html {
   height: 10rem;
   border: 2px solid rgba(52, 178, 178, 0.2);
   border-radius: var(--radius-full);
+  animation: float 3s ease-in-out infinite;
 }
 
 .pharmaco-hero__decorative--circle-2 {
@@ -654,6 +655,8 @@ html {
   background: rgba(52, 178, 178, 0.1);
   border-radius: var(--radius-full);
   filter: blur(60px);
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 0.5s;
 }
 
 .pharmaco-hero__grid {
