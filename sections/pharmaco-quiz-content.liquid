@@ -1,0 +1,175 @@
+{% comment %}
+  Pharmaco Quiz Content
+  Coming soon page for symptom tracker
+{% endcomment %}
+
+<section class="pharmaco-quiz-content" style="padding: 5rem 0;">
+  <div class="pharmaco-container">
+    <div style="max-width: 42rem; margin-left: auto; margin-right: auto;">
+
+      <!-- Notice Box -->
+      <div style="background: linear-gradient(135deg, hsl(0, 75%, 95%) 0%, hsl(0, 70%, 97%) 100%); border-radius: 1rem; padding: 2rem; margin-bottom: 3rem; border: 1px solid hsl(0, 70%, 85%);">
+        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+          <svg width="24" height="24" fill="none" stroke="hsl(0, 70%, 50%)" viewBox="0 0 24 24" style="flex-shrink: 0; margin-top: 0.25rem;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <div>
+            <h3 style="font-family: var(--font-display); font-weight: 700; text-transform: uppercase; color: var(--color-gray-900); margin-bottom: 0.75rem; font-size: 1.125rem;">
+              {{ section.settings.notice_title }}
+            </h3>
+            <p style="color: var(--color-gray-700); line-height: 1.75; margin: 0;">
+              {{ section.settings.notice_text }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quiz Info -->
+      <div style="background: var(--color-white); border-radius: 1rem; padding: 2.5rem; border: 1px solid var(--color-gray-200); box-shadow: var(--shadow-soft); text-align: center;">
+        <div style="width: 4rem; height: 4rem; border-radius: 1rem; background: linear-gradient(135deg, hsl(285, 50%, 95%) 0%, hsl(270, 45%, 97%) 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+          <svg width="32" height="32" fill="none" stroke="hsl(270, 65%, 35%)" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+          </svg>
+        </div>
+
+        <h2 class="pharmaco-heading-card" style="margin-bottom: 1rem; color: var(--color-gray-900);">
+          {{ section.settings.info_title }}
+        </h2>
+
+        <p style="color: var(--color-gray-700); margin-bottom: 2rem; line-height: 1.75;">
+          {{ section.settings.info_text }}
+        </p>
+
+        <!-- Features List -->
+        <ul style="text-align: left; margin-bottom: 2.5rem;">
+          {% if section.settings.feature_1 %}
+            <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--color-gray-200);">
+              <svg width="20" height="20" fill="none" stroke="hsl(150, 55%, 45%)" viewBox="0 0 24 24" style="flex-shrink: 0;">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span style="color: var(--color-gray-700);">{{ section.settings.feature_1 }}</span>
+            </li>
+          {% endif %}
+          {% if section.settings.feature_2 %}
+            <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--color-gray-200);">
+              <svg width="20" height="20" fill="none" stroke="hsl(150, 55%, 45%)" viewBox="0 0 24 24" style="flex-shrink: 0;">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span style="color: var(--color-gray-700);">{{ section.settings.feature_2 }}</span>
+            </li>
+          {% endif %}
+          {% if section.settings.feature_3 %}
+            <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--color-gray-200);">
+              <svg width="20" height="20" fill="none" stroke="hsl(150, 55%, 45%)" viewBox="0 0 24 24" style="flex-shrink: 0;">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span style="color: var(--color-gray-700);">{{ section.settings.feature_3 }}</span>
+            </li>
+          {% endif %}
+          {% if section.settings.feature_4 %}
+            <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0;">
+              <svg width="20" height="20" fill="none" stroke="hsl(150, 55%, 45%)" viewBox="0 0 24 24" style="flex-shrink: 0;">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span style="color: var(--color-gray-700);">{{ section.settings.feature_4 }}</span>
+            </li>
+          {% endif %}
+        </ul>
+
+        {% if section.settings.learn_more_link %}
+          <a href="{{ section.settings.learn_more_link }}" class="pharmaco-btn pharmaco-btn-primary">
+            {{ section.settings.learn_more_text }}
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Quiz Content",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Notice Section"
+    },
+    {
+      "type": "text",
+      "id": "notice_title",
+      "label": "Notice Title",
+      "default": "Important Notice"
+    },
+    {
+      "type": "textarea",
+      "id": "notice_text",
+      "label": "Notice Text",
+      "default": "This symptom tracker is not a diagnostic tool."
+    },
+    {
+      "type": "header",
+      "content": "Quiz Information"
+    },
+    {
+      "type": "text",
+      "id": "info_title",
+      "label": "Info Title",
+      "default": "Quiz Coming Soon"
+    },
+    {
+      "type": "textarea",
+      "id": "info_text",
+      "label": "Info Text",
+      "default": "The symptom tracker quiz is being developed. Once complete, you'll be able to:"
+    },
+    {
+      "type": "text",
+      "id": "feature_1",
+      "label": "Feature 1",
+      "default": "Record your menopause symptoms"
+    },
+    {
+      "type": "text",
+      "id": "feature_2",
+      "label": "Feature 2",
+      "default": "Track symptom severity over time"
+    },
+    {
+      "type": "text",
+      "id": "feature_3",
+      "label": "Feature 3",
+      "default": "Download a PDF symptom chart"
+    },
+    {
+      "type": "text",
+      "id": "feature_4",
+      "label": "Feature 4",
+      "default": "Share results with your doctor"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "text",
+      "id": "learn_more_text",
+      "label": "Button Text",
+      "default": "Learn more about common symptoms"
+    },
+    {
+      "type": "url",
+      "id": "learn_more_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quiz Content"
+    }
+  ]
+}
+{% endschema %}

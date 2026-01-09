@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "pharmaco_page_hero": {
+      "type": "pharmaco-page-hero",
+      "settings": {
+        "eyebrow_text": "Symptom Tracker",
+        "heading": "Track Your Symptoms",
+        "description": "Record your symptoms and receive a printable chart to monitor your progress and share with your healthcare professional."
+      }
+    },
+    "pharmaco_quiz_content": {
+      "type": "pharmaco-quiz-content",
+      "settings": {
+        "notice_title": "Important Notice",
+        "notice_text": "This symptom tracker is not a diagnostic tool. It is designed to help you learn about and consider if you may be experiencing menopause, and to monitor your ongoing response to treatments. If you feel you are experiencing symptoms of menopause, please consult a healthcare professional.",
+        "info_title": "Quiz Coming Soon",
+        "info_text": "The symptom tracker quiz is being developed. Once complete, you'll be able to:",
+        "feature_1": "Record your menopause symptoms",
+        "feature_2": "Track symptom severity over time",
+        "feature_3": "Download a PDF symptom chart",
+        "feature_4": "Share results with your doctor",
+        "learn_more_text": "Learn more about common symptoms",
+        "learn_more_link": "/pages/symptoms"
+      }
+    }
+  },
+  "order": [
+    "pharmaco_page_hero",
+    "pharmaco_quiz_content"
+  ]
+}
