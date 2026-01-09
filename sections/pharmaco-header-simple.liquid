@@ -1,23 +1,22 @@
 {% comment %}
-  Pharmaco Women's Health Header - Simplified (No Alpine.js)
+  Pharmaco Women's Health Header
   Features: Purple branding bar, sticky navigation, mobile menu
 {% endcomment %}
 
 <header
   id="pharmaco-header"
-  data-pharmaco-header
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  class="pharmaco-header"
 >
   <!-- Pharmaco branding bar -->
-  <div class="bg-gradient-purple text-white py-2">
-    <div class="container mx-auto px-4 flex items-center justify-between">
-      <span class="text-xs font-medium tracking-wide opacity-90">
+  <div class="pharmaco-header__branding pharmaco-gradient-purple">
+    <div class="pharmaco-container pharmaco-header__branding-content">
+      <span class="pharmaco-header__branding-text">
         {{ section.settings.branding_text }}
       </span>
       {% if section.settings.hcp_login_text and section.settings.hcp_login_link %}
         <a
           href="{{ section.settings.hcp_login_link }}"
-          class="text-xs font-medium hover:underline opacity-90 hover:opacity-100 transition-opacity"
+          class="pharmaco-header__branding-link"
         >
           {{ section.settings.hcp_login_text }}
         </a>
@@ -28,12 +27,12 @@
   <!-- Main navigation -->
   <div
     id="main-nav"
-    class="transition-all duration-300 bg-transparent"
+    class="pharmaco-header__nav"
   >
-    <div class="container mx-auto px-4">
-      <nav class="flex items-center justify-between h-16 md:h-20">
+    <div class="pharmaco-container">
+      <nav class="pharmaco-header__nav-content">
         <!-- Logo -->
-        <a href="{{ routes.root_url }}" class="flex items-center gap-3 group">
+        <a href="{{ routes.root_url }}" class="pharmaco-header__logo">
           {% if section.settings.logo_color %}
             <img
               id="header-logo"
@@ -41,34 +40,36 @@
               data-logo-white="{{ section.settings.logo_white | image_url: width: 200 }}"
               data-logo-color="{{ section.settings.logo_color | image_url: width: 200 }}"
               alt="{{ shop.name }}"
-              class="h-10 md:h-12 w-auto object-contain transition-all duration-300"
+              class="pharmaco-header__logo-img"
               loading="eager"
             >
           {% else %}
-            <span id="header-text-logo" class="font-display text-xl md:text-2xl font-bold uppercase text-white">
+            <span id="header-text-logo" class="pharmaco-header__logo-text">
               {{ shop.name }}
             </span>
           {% endif %}
         </a>
 
         <!-- Desktop Navigation -->
-        <div class="hidden lg:flex items-center gap-1">
+        <ul class="pharmaco-header__menu">
           {% for link in section.settings.menu.links %}
-            <a
-              href="{{ link.url }}"
-              class="nav-link px-4 py-2 rounded-lg transition-all duration-200 font-display uppercase text-sm tracking-wide text-white hover:text-teal hover:bg-white/10"
-            >
-              {{ link.title }}
-            </a>
+            <li>
+              <a
+                href="{{ link.url }}"
+                class="pharmaco-header__menu-link"
+              >
+                {{ link.title }}
+              </a>
+            </li>
           {% endfor %}
-        </div>
+        </ul>
 
         <!-- CTA Button -->
-        <div class="hidden md:flex items-center gap-4">
+        <div class="pharmaco-header__cta">
           {% if section.settings.cta_text and section.settings.cta_link %}
             <a
               href="{{ section.settings.cta_link }}"
-              class="btn-secondary px-6 py-2 rounded-lg text-sm transition-all duration-300"
+              class="pharmaco-btn pharmaco-btn-secondary"
             >
               {{ section.settings.cta_text }}
             </a>
@@ -78,14 +79,13 @@
         <!-- Mobile Menu Button -->
         <button
           id="mobile-menu-btn"
-          data-mobile-menu-toggle
-          class="lg:hidden p-2 transition-colors text-white"
+          class="pharmaco-header__mobile-toggle"
           aria-label="Toggle menu"
         >
-          <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg id="menu-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
-          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg id="close-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
@@ -96,14 +96,13 @@
   <!-- Mobile Menu -->
   <div
     id="mobile-menu"
-    data-mobile-menu
-    class="lg:hidden bg-white/98 backdrop-blur-md border-t border-gray-200 hidden"
+    class="pharmaco-header__mobile-menu"
   >
-    <div class="container mx-auto px-4 py-4 space-y-2">
+    <div class="pharmaco-container pharmaco-header__mobile-menu-content">
       {% for link in section.settings.menu.links %}
         <a
           href="{{ link.url }}"
-          class="block py-3 px-4 rounded-lg transition-colors font-display uppercase tracking-wide text-gray-700 hover:bg-purple-light hover:text-purple"
+          class="pharmaco-header__mobile-menu-link"
         >
           {{ link.title }}
         </a>
@@ -112,7 +111,8 @@
       {% if section.settings.cta_text and section.settings.cta_link %}
         <a
           href="{{ section.settings.cta_link }}"
-          class="block w-full btn-secondary text-center px-6 py-3 rounded-lg mt-4"
+          class="pharmaco-btn pharmaco-btn-secondary pharmaco-btn-lg"
+          style="display: block; text-align: center; margin-top: var(--spacing-md);"
         >
           {{ section.settings.cta_text }}
         </a>
@@ -122,12 +122,11 @@
 </header>
 
 <!-- Spacer to prevent content from hiding under fixed header -->
-<div class="h-28 md:h-32"></div>
+<div class="pharmaco-header-spacer"></div>
 
 <script>
   // Header scroll and mobile menu functionality
   (function() {
-    const header = document.getElementById('pharmaco-header');
     const mainNav = document.getElementById('main-nav');
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -135,84 +134,53 @@
     const closeIcon = document.getElementById('close-icon');
     const headerLogo = document.getElementById('header-logo');
     const headerTextLogo = document.getElementById('header-text-logo');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const menuLinks = document.querySelectorAll('.pharmaco-header__menu-link');
 
     // Scroll behavior
-    let lastScroll = 0;
     window.addEventListener('scroll', () => {
       const currentScroll = window.pageYOffset;
 
       if (currentScroll > 20) {
-        mainNav.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-soft');
-        mainNav.classList.remove('bg-transparent');
+        mainNav.classList.add('pharmaco-header__nav--scrolled');
 
         // Update logo if exists
-        if (headerLogo && headerLogo.dataset.logoWhite && headerLogo.dataset.logoColor) {
+        if (headerLogo && headerLogo.dataset.logoColor) {
           headerLogo.src = headerLogo.dataset.logoColor;
         }
-
-        // Update text logo color
-        if (headerTextLogo) {
-          headerTextLogo.classList.remove('text-white');
-          headerTextLogo.classList.add('text-purple');
-        }
-
-        // Update nav link colors
-        navLinks.forEach(link => {
-          link.classList.remove('text-white', 'hover:text-teal', 'hover:bg-white/10');
-          link.classList.add('text-gray-700', 'hover:text-purple', 'hover:bg-purple-light');
-        });
-
-        // Update mobile button color
-        if (mobileMenuBtn) {
-          mobileMenuBtn.classList.remove('text-white');
-          mobileMenuBtn.classList.add('text-gray-700');
-        }
       } else {
-        mainNav.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-soft');
-        mainNav.classList.add('bg-transparent');
+        mainNav.classList.remove('pharmaco-header__nav--scrolled');
 
         // Update logo if exists
-        if (headerLogo && headerLogo.dataset.logoWhite && headerLogo.dataset.logoColor) {
+        if (headerLogo && headerLogo.dataset.logoWhite) {
           headerLogo.src = headerLogo.dataset.logoWhite;
         }
-
-        // Update text logo color
-        if (headerTextLogo) {
-          headerTextLogo.classList.remove('text-purple');
-          headerTextLogo.classList.add('text-white');
-        }
-
-        // Update nav link colors
-        navLinks.forEach(link => {
-          link.classList.remove('text-gray-700', 'hover:text-purple', 'hover:bg-purple-light');
-          link.classList.add('text-white', 'hover:text-teal', 'hover:bg-white/10');
-        });
-
-        // Update mobile button color
-        if (mobileMenuBtn) {
-          mobileMenuBtn.classList.remove('text-gray-700');
-          mobileMenuBtn.classList.add('text-white');
-        }
       }
-
-      lastScroll = currentScroll;
     });
 
     // Mobile menu toggle
     if (mobileMenuBtn && mobileMenu) {
       mobileMenuBtn.addEventListener('click', () => {
-        const isOpen = !mobileMenu.classList.contains('hidden');
+        const isOpen = mobileMenu.classList.contains('pharmaco-header__mobile-menu--open');
 
         if (isOpen) {
-          mobileMenu.classList.add('hidden');
-          menuIcon.classList.remove('hidden');
-          closeIcon.classList.add('hidden');
+          mobileMenu.classList.remove('pharmaco-header__mobile-menu--open');
+          menuIcon.style.display = 'block';
+          closeIcon.style.display = 'none';
         } else {
-          mobileMenu.classList.remove('hidden');
-          menuIcon.classList.add('hidden');
-          closeIcon.classList.remove('hidden');
+          mobileMenu.classList.add('pharmaco-header__mobile-menu--open');
+          menuIcon.style.display = 'none';
+          closeIcon.style.display = 'block';
         }
+      });
+
+      // Close mobile menu when clicking a link
+      const mobileLinks = document.querySelectorAll('.pharmaco-header__mobile-menu-link');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('pharmaco-header__mobile-menu--open');
+          menuIcon.style.display = 'block';
+          closeIcon.style.display = 'none';
+        });
       });
     }
   })();

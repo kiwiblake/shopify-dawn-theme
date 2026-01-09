@@ -1,0 +1,1227 @@
+/**
+ * Pharmaco Women's Health Theme
+ * Custom CSS for menopause information website
+ */
+
+/* ==========================================================================
+   CSS Custom Properties (Variables)
+   ========================================================================== */
+
+:root {
+  /* Colors - Purple palette */
+  --color-purple: hsl(270, 65%, 35%);
+  --color-purple-light: hsl(270, 50%, 92%);
+  --color-purple-dark: hsl(270, 70%, 25%);
+  --color-purple-mid: hsl(270, 60%, 45%);
+
+  /* Colors - Teal palette */
+  --color-teal: hsl(180, 55%, 45%);
+  --color-teal-light: hsl(180, 45%, 90%);
+  --color-teal-dark: hsl(180, 60%, 30%);
+
+  /* Colors - Violet palette */
+  --color-violet: hsl(280, 60%, 55%);
+  --color-violet-light: hsl(280, 50%, 95%);
+
+  /* Neutral colors */
+  --color-white: #ffffff;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-900: #111827;
+
+  /* Typography */
+  --font-display: 'Proxima Nova Condensed', system-ui, -apple-system, sans-serif;
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Font sizes */
+  --font-size-xs: 0.75rem;      /* 12px */
+  --font-size-sm: 0.875rem;     /* 14px */
+  --font-size-base: 1rem;       /* 16px */
+  --font-size-lg: 1.125rem;     /* 18px */
+  --font-size-xl: 1.25rem;      /* 20px */
+  --font-size-2xl: 1.5rem;      /* 24px */
+  --font-size-3xl: 1.875rem;    /* 30px */
+  --font-size-4xl: 2.25rem;     /* 36px */
+  --font-size-5xl: 3rem;        /* 48px */
+  --font-size-6xl: 3.75rem;     /* 60px */
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;    /* 8px */
+  --spacing-sm: 0.75rem;   /* 12px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 3rem;     /* 48px */
+  --spacing-3xl: 4rem;     /* 64px */
+  --spacing-4xl: 6rem;     /* 96px */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-glow-purple: 0 10px 30px rgba(89, 31, 147, 0.3);
+  --shadow-glow-teal: 0 10px 30px rgba(52, 178, 178, 0.3);
+
+  /* Border radius */
+  --radius-sm: 0.375rem;  /* 6px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 0.75rem;   /* 12px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 200ms ease-in-out;
+  --transition-slow: 300ms ease-in-out;
+
+  /* Container */
+  --container-max-width: 1400px;
+  --container-padding: 2rem;
+}
+
+/* ==========================================================================
+   Custom Font Faces
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Proxima Nova Condensed';
+  src: url('ProximaNovaCond-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova Condensed';
+  src: url('ProximaNovaCond-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--color-gray-900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-purple);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-purple-mid);
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(52, 178, 178, 0.3);
+  color: inherit;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+.pharmaco-heading-display {
+  font-family: var(--font-display);
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .pharmaco-heading-display {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .pharmaco-heading-display {
+    font-size: var(--font-size-6xl);
+  }
+}
+
+.pharmaco-heading-section {
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .pharmaco-heading-section {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .pharmaco-heading-section {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+.pharmaco-heading-card {
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .pharmaco-heading-card {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+.pharmaco-body-large {
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+}
+
+.pharmaco-body-regular {
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+}
+
+.pharmaco-label-small {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   Layout - Container
+   ========================================================================== */
+
+.pharmaco-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* ==========================================================================
+   Gradients
+   ========================================================================== */
+
+.pharmaco-gradient-hero {
+  background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-purple-mid) 50%, var(--color-violet) 100%);
+}
+
+.pharmaco-gradient-purple {
+  background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-purple-mid) 100%);
+}
+
+.pharmaco-gradient-teal {
+  background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-teal-dark) 100%);
+}
+
+.pharmaco-gradient-subtle {
+  background: linear-gradient(to bottom, var(--color-gray-50) 0%, var(--color-white) 100%);
+}
+
+.pharmaco-gradient-footer {
+  background: linear-gradient(to top, var(--color-purple-dark) 0%, var(--color-purple) 100%);
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.pharmaco-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-family: var(--font-display);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  border: none;
+}
+
+.pharmaco-btn-primary {
+  background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-purple-mid) 100%);
+  color: var(--color-white);
+}
+
+.pharmaco-btn-primary:hover {
+  box-shadow: var(--shadow-glow-purple);
+  transform: translateY(-2px);
+}
+
+.pharmaco-btn-secondary {
+  background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-teal-dark) 100%);
+  color: var(--color-white);
+}
+
+.pharmaco-btn-secondary:hover {
+  box-shadow: var(--shadow-glow-teal);
+  transform: translateY(-2px);
+}
+
+.pharmaco-btn-outline {
+  background: transparent;
+  border: 2px solid var(--color-white);
+  color: var(--color-white);
+}
+
+.pharmaco-btn-outline:hover {
+  background: var(--color-white);
+  color: var(--color-purple);
+}
+
+.pharmaco-btn-lg {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--font-size-lg);
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.pharmaco-animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.pharmaco-animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.pharmaco-animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Animation delays */
+.pharmaco-delay-100 { animation-delay: 100ms; }
+.pharmaco-delay-200 { animation-delay: 200ms; }
+.pharmaco-delay-300 { animation-delay: 300ms; }
+.pharmaco-delay-500 { animation-delay: 500ms; }
+
+/* ==========================================================================
+   Component - Header
+   ========================================================================== */
+
+.pharmaco-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: all var(--transition-slow);
+}
+
+.pharmaco-header__branding {
+  background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-purple-mid) 100%);
+  color: var(--color-white);
+  padding: var(--spacing-xs) 0;
+}
+
+.pharmaco-header__branding-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pharmaco-header__branding-text {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  opacity: 0.9;
+}
+
+.pharmaco-header__branding-link {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  color: var(--color-white);
+  text-decoration: none;
+  opacity: 0.9;
+  transition: opacity var(--transition-fast);
+}
+
+.pharmaco-header__branding-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.pharmaco-header__nav {
+  background: transparent;
+  transition: all var(--transition-slow);
+}
+
+.pharmaco-header__nav--scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-md);
+}
+
+.pharmaco-header__nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+}
+
+@media (min-width: 768px) {
+  .pharmaco-header__nav-content {
+    height: 5rem;
+  }
+}
+
+.pharmaco-header__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+}
+
+.pharmaco-header__logo-img {
+  height: 2.5rem;
+  width: auto;
+  object-fit: contain;
+  transition: all var(--transition-slow);
+}
+
+@media (min-width: 768px) {
+  .pharmaco-header__logo-img {
+    height: 3rem;
+  }
+}
+
+.pharmaco-header__logo-text {
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-white);
+  transition: color var(--transition-slow);
+}
+
+@media (min-width: 768px) {
+  .pharmaco-header__logo-text {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+.pharmaco-header__nav--scrolled .pharmaco-header__logo-text {
+  color: var(--color-purple);
+}
+
+.pharmaco-header__menu {
+  display: none;
+  align-items: center;
+  gap: var(--spacing-xs);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .pharmaco-header__menu {
+    display: flex;
+  }
+}
+
+.pharmaco-header__menu-link {
+  display: block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-family: var(--font-display);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: var(--color-white);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.pharmaco-header__menu-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-teal);
+}
+
+.pharmaco-header__nav--scrolled .pharmaco-header__menu-link {
+  color: var(--color-gray-700);
+}
+
+.pharmaco-header__nav--scrolled .pharmaco-header__menu-link:hover {
+  background: var(--color-purple-light);
+  color: var(--color-purple);
+}
+
+.pharmaco-header__cta {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .pharmaco-header__cta {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+}
+
+.pharmaco-header__mobile-toggle {
+  display: block;
+  padding: var(--spacing-xs);
+  background: none;
+  border: none;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+@media (min-width: 1024px) {
+  .pharmaco-header__mobile-toggle {
+    display: none;
+  }
+}
+
+.pharmaco-header__nav--scrolled .pharmaco-header__mobile-toggle {
+  color: var(--color-gray-700);
+}
+
+.pharmaco-header__mobile-menu {
+  display: none;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+@media (min-width: 1024px) {
+  .pharmaco-header__mobile-menu {
+    display: none !important;
+  }
+}
+
+.pharmaco-header__mobile-menu--open {
+  display: block;
+}
+
+.pharmaco-header__mobile-menu-content {
+  padding: var(--spacing-md) 0;
+}
+
+.pharmaco-header__mobile-menu-link {
+  display: block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-family: var(--font-display);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: var(--color-gray-700);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+  margin-bottom: var(--spacing-xs);
+}
+
+.pharmaco-header__mobile-menu-link:hover {
+  background: var(--color-purple-light);
+  color: var(--color-purple);
+}
+
+.pharmaco-header-spacer {
+  height: 7rem;
+}
+
+@media (min-width: 768px) {
+  .pharmaco-header-spacer {
+    height: 8rem;
+  }
+}
+
+/* ==========================================================================
+   Component - Hero
+   ========================================================================== */
+
+.pharmaco-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
+
+.pharmaco-hero__decorative {
+  position: absolute;
+}
+
+.pharmaco-hero__decorative--circle-1 {
+  bottom: 5rem;
+  left: 2.5rem;
+  width: 10rem;
+  height: 10rem;
+  border: 2px solid rgba(52, 178, 178, 0.2);
+  border-radius: var(--radius-full);
+}
+
+.pharmaco-hero__decorative--circle-2 {
+  bottom: -5rem;
+  left: -5rem;
+  width: 20rem;
+  height: 20rem;
+  background: rgba(52, 178, 178, 0.1);
+  border-radius: var(--radius-full);
+  filter: blur(60px);
+}
+
+.pharmaco-hero__grid {
+  display: grid;
+  gap: var(--spacing-2xl);
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .pharmaco-hero__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+}
+
+.pharmaco-hero__content {
+  order: 2;
+}
+
+@media (min-width: 1024px) {
+  .pharmaco-hero__content {
+    order: 1;
+  }
+}
+
+.pharmaco-hero__eyebrow {
+  color: var(--color-teal);
+  margin-bottom: var(--spacing-md);
+  display: block;
+}
+
+.pharmaco-hero__heading {
+  color: var(--color-white);
+  margin-bottom: var(--spacing-lg);
+}
+
+.pharmaco-hero__heading-highlight {
+  color: var(--color-teal);
+}
+
+.pharmaco-hero__subheading {
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: var(--spacing-xl);
+  max-width: 36rem;
+}
+
+.pharmaco-hero__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 640px) {
+  .pharmaco-hero__buttons {
+    flex-direction: row;
+  }
+}
+
+.pharmaco-hero__trust-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+}
+
+.pharmaco-hero__trust-item {
+  text-align: center;
+}
+
+.pharmaco-hero__trust-title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-white);
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+.pharmaco-hero__trust-subtitle {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.pharmaco-hero__visual {
+  order: 1;
+  position: relative;
+  align-self: flex-end;
+}
+
+@media (min-width: 1024px) {
+  .pharmaco-hero__visual {
+    order: 2;
+  }
+}
+
+.pharmaco-hero__visual-inner {
+  position: relative;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+.pharmaco-hero__image-wrapper {
+  position: relative;
+  margin-bottom: -5rem;
+}
+
+.pharmaco-hero__image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.15));
+}
+
+.pharmaco-hero__float-accent {
+  position: absolute;
+  border-radius: var(--radius-full);
+  animation: float 3s ease-in-out infinite;
+}
+
+.pharmaco-hero__float-accent--1 {
+  top: 2.5rem;
+  right: 0;
+  width: 1rem;
+  height: 1rem;
+  background: var(--color-teal);
+  animation-delay: 100ms;
+}
+
+.pharmaco-hero__float-accent--2 {
+  bottom: 8rem;
+  left: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: rgba(255, 255, 255, 0.4);
+  animation-delay: 200ms;
+}
+
+.pharmaco-hero__float-accent--3 {
+  top: 33%;
+  left: -1.25rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: rgba(52, 178, 178, 0.6);
+  animation-delay: 500ms;
+}
+
+/* ==========================================================================
+   Component - Info Cards
+   ========================================================================== */
+
+.pharmaco-info-cards {
+  padding: var(--spacing-4xl) 0;
+  background: var(--color-white);
+}
+
+.pharmaco-info-cards__header {
+  text-align: center;
+  max-width: 42rem;
+  margin: 0 auto var(--spacing-4xl);
+}
+
+.pharmaco-info-cards__eyebrow {
+  color: var(--color-purple);
+  margin-bottom: var(--spacing-sm);
+  display: block;
+}
+
+.pharmaco-info-cards__heading {
+  color: var(--color-gray-900);
+  margin-bottom: var(--spacing-md);
+}
+
+.pharmaco-info-cards__subheading {
+  color: var(--color-gray-600);
+}
+
+.pharmaco-info-cards__grid {
+  display: grid;
+  gap: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .pharmaco-info-cards__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .pharmaco-info-cards__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.pharmaco-info-cards__card {
+  position: relative;
+  padding: var(--spacing-xl);
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.pharmaco-info-cards__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-purple-light);
+}
+
+.pharmaco-info-cards__card-icon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-purple-light);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-purple);
+}
+
+.pharmaco-info-cards__card-title {
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-gray-900);
+}
+
+.pharmaco-info-cards__card-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Component - Products
+   ========================================================================== */
+
+.pharmaco-products {
+  padding: var(--spacing-4xl) 0;
+  background: var(--color-white);
+}
+
+.pharmaco-products__header {
+  text-align: center;
+  max-width: 42rem;
+  margin: 0 auto var(--spacing-4xl);
+}
+
+.pharmaco-products__eyebrow {
+  color: var(--color-purple);
+  margin-bottom: var(--spacing-sm);
+  display: block;
+}
+
+.pharmaco-products__heading {
+  color: var(--color-gray-900);
+  margin-bottom: var(--spacing-md);
+}
+
+.pharmaco-products__subheading {
+  color: var(--color-gray-600);
+}
+
+.pharmaco-products__grid {
+  display: grid;
+  gap: var(--spacing-xl);
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .pharmaco-products__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pharmaco-products__card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-slow);
+}
+
+.pharmaco-products__card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.pharmaco-products__card-accent {
+  height: 0.5rem;
+}
+
+.pharmaco-products__card-content {
+  padding: var(--spacing-2xl) var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .pharmaco-products__card-content {
+    padding: 2.5rem;
+  }
+}
+
+.pharmaco-products__card-logo {
+  width: auto;
+  height: 3rem;
+  object-fit: contain;
+  margin-bottom: var(--spacing-lg);
+}
+
+.pharmaco-products__card-name {
+  font-family: var(--font-display);
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-lg);
+}
+
+.pharmaco-products__card-tagline {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-top: var(--spacing-sm);
+}
+
+.pharmaco-products__card-description {
+  color: var(--color-gray-600);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-lg);
+}
+
+.pharmaco-products__card-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-xl);
+}
+
+.pharmaco-products__card-feature-badge {
+  font-size: var(--font-size-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-full);
+}
+
+.pharmaco-products__card-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-family: var(--font-display);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: var(--color-white);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.pharmaco-products__card-cta svg {
+  width: 1rem;
+  height: 1rem;
+  transition: transform var(--transition-base);
+}
+
+.pharmaco-products__card-cta:hover svg {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   Component - Quiz CTA
+   ========================================================================== */
+
+.pharmaco-quiz-cta {
+  padding: var(--spacing-4xl) 0;
+}
+
+.pharmaco-quiz-cta__content {
+  max-width: 48rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pharmaco-quiz-cta__eyebrow {
+  margin-bottom: var(--spacing-md);
+  display: block;
+}
+
+.pharmaco-quiz-cta__heading {
+  margin-bottom: var(--spacing-lg);
+}
+
+.pharmaco-quiz-cta__description {
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-xl);
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pharmaco-quiz-cta__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .pharmaco-quiz-cta__buttons {
+    flex-direction: row;
+  }
+}
+
+.pharmaco-quiz-cta__disclaimer {
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-lg);
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   Component - Footer
+   ========================================================================== */
+
+.pharmaco-footer {
+  color: var(--color-white);
+  padding-top: var(--spacing-4xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+.pharmaco-footer__main {
+  display: grid;
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-3xl);
+}
+
+@media (min-width: 768px) {
+  .pharmaco-footer__main {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pharmaco-footer__main {
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
+.pharmaco-footer__brand {
+  max-width: 20rem;
+}
+
+.pharmaco-footer__brand-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.pharmaco-footer__brand-initial {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+}
+
+.pharmaco-footer__brand-name {
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pharmaco-footer__brand-description {
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.pharmaco-footer__columns {
+  display: grid;
+  gap: var(--spacing-2xl);
+}
+
+@media (min-width: 640px) {
+  .pharmaco-footer__columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pharmaco-footer__column-title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-md);
+}
+
+.pharmaco-footer__column-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pharmaco-footer__column-menu-item {
+  margin-bottom: var(--spacing-xs);
+}
+
+.pharmaco-footer__column-menu-link {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.pharmaco-footer__column-menu-link:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+.pharmaco-footer__mandatories {
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: var(--spacing-xl);
+}
+
+.pharmaco-footer__mandatory {
+  font-size: var(--font-size-xs);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: var(--spacing-md);
+}
+
+.pharmaco-footer__mandatory:last-child {
+  margin-bottom: 0;
+}
+
+.pharmaco-footer__bottom {
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.pharmaco-footer__copyright {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+
+.pharmaco-color-purple { color: var(--color-purple); }
+.pharmaco-color-teal { color: var(--color-teal); }
+.pharmaco-color-white { color: var(--color-white); }
+.pharmaco-color-gray-600 { color: var(--color-gray-600); }
+.pharmaco-color-gray-700 { color: var(--color-gray-700); }
+.pharmaco-color-gray-900 { color: var(--color-gray-900); }
+
+.pharmaco-bg-teal-light { background-color: var(--color-teal-light); }
+.pharmaco-bg-teal-dark { color: var(--color-teal-dark); }
+.pharmaco-bg-purple-light { background-color: var(--color-purple-light); }
+.pharmaco-bg-purple-dark { color: var(--color-purple-dark); }
+
+.pharmaco-text-white-80 { color: rgba(255, 255, 255, 0.8); }
