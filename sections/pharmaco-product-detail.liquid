@@ -1,0 +1,358 @@
+{% comment %}
+  Pharmaco Product Detail Section
+  Reusable section for product pages (Estrogel, Utrogestan)
+  Features: Product info, benefits grid, safety info, CTAs
+{% endcomment %}
+
+<section class="pharmaco-product-detail">
+  <div class="pharmaco-container" style="padding-top: 5rem; padding-bottom: 5rem;">
+
+    {%- liquid
+      assign color_scheme = section.settings.color_scheme
+      assign is_teal = false
+      assign is_purple = false
+
+      if color_scheme == 'teal'
+        assign is_teal = true
+        assign accent_color = 'var(--color-teal)'
+        assign accent_light = 'var(--color-teal-light)'
+        assign accent_bg = 'rgba(77, 175, 175, 0.1)'
+      elsif color_scheme == 'purple'
+        assign is_purple = true
+        assign accent_color = 'var(--color-purple-mid)'
+        assign accent_light = 'var(--color-purple-light)'
+        assign accent_bg = 'rgba(117, 76, 141, 0.1)'
+      else
+        assign accent_color = 'var(--color-purple)'
+        assign accent_light = 'var(--color-purple-light)'
+        assign accent_bg = 'rgba(117, 76, 141, 0.1)'
+      endif
+    -%}
+
+    <!-- Benefits Grid -->
+    {% if section.blocks.size > 0 %}
+      <div class="pharmaco-product-detail__benefits" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 80rem; margin: 0 auto 4rem;">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'benefit' %}
+              <div
+                class="pharmaco-product-detail__benefit pharmaco-animate-fade-in-up"
+                style="
+                  background: var(--color-white);
+                  border-radius: var(--radius-xl);
+                  padding: 1.5rem;
+                  text-align: center;
+                  border: 1px solid var(--color-gray-200);
+                  box-shadow: var(--shadow-soft);
+                  animation-delay: {{ forloop.index0 | times: 100 }}ms;
+                "
+                {{ block.shopify_attributes }}
+              >
+                <!-- Icon -->
+                <div style="
+                  width: 3.5rem;
+                  height: 3.5rem;
+                  border-radius: 50%;
+                  background: {{ accent_bg }};
+                  margin: 0 auto 1rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                ">
+                  {% if block.settings.icon_svg %}
+                    <div style="color: {{ accent_color }}; width: 1.75rem; height: 1.75rem;">
+                      {{ block.settings.icon_svg }}
+                    </div>
+                  {% else %}
+                    <svg width="28" height="28" fill="none" stroke="{{ accent_color }}" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                  {% endif %}
+                </div>
+
+                <!-- Title -->
+                <h3 class="pharmaco-heading-card" style="margin-bottom: 0.5rem; text-transform: uppercase;">
+                  {{ block.settings.title }}
+                </h3>
+
+                <!-- Description -->
+                <p style="font-size: var(--font-size-sm); color: var(--color-gray-600); margin: 0;">
+                  {{ block.settings.description }}
+                </p>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <!-- Product Information Box -->
+    {% if section.settings.info_text != blank %}
+      <div class="pharmaco-product-detail__info" style="
+        max-width: 48rem;
+        margin: 0 auto 2rem;
+        background: {{ accent_bg }};
+        border-radius: var(--radius-xl);
+        padding: 2rem;
+        border: 1px solid {{ accent_light }};
+      ">
+        <p style="color: var(--color-gray-600); font-style: italic; margin: 0; line-height: 1.75;">
+          {{ section.settings.info_text }}
+        </p>
+      </div>
+    {% endif %}
+
+    <!-- CTA Buttons -->
+    <div class="pharmaco-product-detail__ctas" style="
+      max-width: 48rem;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    ">
+      {% if section.settings.primary_cta_text != blank and section.settings.primary_cta_link != blank %}
+        <a
+          href="{{ section.settings.primary_cta_link }}"
+          class="pharmaco-btn {% if is_teal %}pharmaco-btn--teal{% elsif is_purple %}pharmaco-btn--purple{% else %}pharmaco-btn--primary{% endif %}"
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 2rem;
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-base);
+            text-decoration: none;
+          "
+        >
+          {{ section.settings.primary_cta_text }}
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      {% endif %}
+
+      {% if section.settings.secondary_cta_text != blank and section.settings.secondary_cta_link != blank %}
+        <a
+          href="{{ section.settings.secondary_cta_link }}"
+          class="pharmaco-btn pharmaco-btn--outline"
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 2rem;
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-base);
+            text-decoration: none;
+            border: 2px solid var(--color-gray-300);
+            background: transparent;
+            color: var(--color-gray-700);
+          "
+        >
+          {{ section.settings.secondary_cta_text }}
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+<!-- Important Safety Information -->
+{% if section.settings.show_disclaimer and section.settings.disclaimer_text != blank %}
+  <section class="pharmaco-product-detail__disclaimer" style="
+    padding: 2rem 0;
+    border-top: 1px solid var(--color-gray-200);
+  ">
+    <div class="pharmaco-container">
+      <div style="max-width: 64rem; margin: 0 auto;">
+        <p style="font-size: var(--font-size-xs); color: var(--color-gray-600); margin: 0; line-height: 1.6;">
+          {{ section.settings.disclaimer_text }}
+        </p>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+<style>
+  .pharmaco-btn--teal {
+    background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-teal-dark) 100%);
+    color: var(--color-white);
+    box-shadow: 0 4px 14px 0 hsla(180, 55%, 45%, 0.35);
+  }
+
+  .pharmaco-btn--teal:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 hsla(180, 55%, 45%, 0.45);
+  }
+
+  .pharmaco-btn--purple {
+    background: linear-gradient(135deg, var(--color-purple-mid) 0%, var(--color-purple-dark) 100%);
+    color: var(--color-white);
+    box-shadow: 0 4px 14px 0 hsla(280, 60%, 55%, 0.35);
+  }
+
+  .pharmaco-btn--purple:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 hsla(280, 60%, 55%, 0.45);
+  }
+
+  .pharmaco-btn--outline:hover {
+    border-color: var(--color-purple);
+    color: var(--color-purple);
+    background: var(--color-purple-light);
+  }
+
+  .pharmaco-btn svg {
+    transition: transform var(--transition-base);
+  }
+
+  .pharmaco-btn:hover svg {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 640px) {
+    .pharmaco-product-detail__benefits {
+      grid-template-columns: 1fr !important;
+    }
+
+    .pharmaco-product-detail__ctas {
+      flex-direction: column;
+    }
+
+    .pharmaco-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Product Detail",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Color Scheme"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "options": [
+        {
+          "value": "teal",
+          "label": "Teal (Estrogel)"
+        },
+        {
+          "value": "purple",
+          "label": "Purple (Utrogestan)"
+        }
+      ],
+      "default": "teal"
+    },
+    {
+      "type": "header",
+      "content": "Product Information"
+    },
+    {
+      "type": "textarea",
+      "id": "info_text",
+      "label": "Information Text",
+      "info": "Optional highlighted information box"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action Buttons"
+    },
+    {
+      "type": "text",
+      "id": "primary_cta_text",
+      "label": "Primary Button Text",
+      "default": "How to Use"
+    },
+    {
+      "type": "url",
+      "id": "primary_cta_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_cta_text",
+      "label": "Secondary Button Text",
+      "default": "View Resources"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_link",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Disclaimer"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_disclaimer",
+      "label": "Show Disclaimer",
+      "default": true
+    },
+    {
+      "type": "html",
+      "id": "disclaimer_text",
+      "label": "Disclaimer Text",
+      "default": "<strong>Estrogel® (estradiol)</strong> is a prescription medicine used for the relief of menopausal symptoms associated with estrogen deficiency. Always read the label and use as directed. If symptoms persist, see your healthcare professional. TAPS Approval No: [To be added]"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Benefit Title",
+          "default": "Key Feature"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Benefit Description",
+          "default": "Description of this key benefit or feature"
+        },
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG",
+          "info": "Paste SVG code for the icon (e.g., from Lucide icons)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Detail",
+      "blocks": [
+        {
+          "type": "benefit"
+        },
+        {
+          "type": "benefit"
+        },
+        {
+          "type": "benefit"
+        },
+        {
+          "type": "benefit"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

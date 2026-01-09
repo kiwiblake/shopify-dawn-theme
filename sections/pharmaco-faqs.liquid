@@ -1,0 +1,365 @@
+{% comment %}
+  Pharmaco FAQs Section
+  Expandable accordion for frequently asked questions
+  Features: Blocks for Q&A pairs, vanilla JS accordion
+{% endcomment %}
+
+<section class="pharmaco-faqs">
+  <div class="pharmaco-container" style="padding-top: 5rem; padding-bottom: 5rem;">
+    <div style="max-width: 48rem; margin: 0 auto;">
+
+      <!-- FAQ Accordion -->
+      {% if section.blocks.size > 0 %}
+        <div class="pharmaco-faqs__accordion" style="display: flex; flex-direction: column; gap: 1rem;">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'faq' %}
+                <div
+                  class="pharmaco-faqs__item"
+                  style="
+                    background: var(--color-white);
+                    border-radius: var(--radius-xl);
+                    border: 1px solid var(--color-gray-200);
+                    box-shadow: var(--shadow-soft);
+                    transition: box-shadow var(--transition-base);
+                  "
+                  data-faq-item
+                  {{ block.shopify_attributes }}
+                >
+                  <!-- Question Button -->
+                  <button
+                    class="pharmaco-faqs__trigger"
+                    style="
+                      width: 100%;
+                      text-align: left;
+                      padding: 1.25rem 1.5rem;
+                      font-family: var(--font-display);
+                      font-size: var(--font-size-lg);
+                      font-weight: 500;
+                      color: var(--color-gray-900);
+                      background: transparent;
+                      border: none;
+                      cursor: pointer;
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      gap: 1rem;
+                      transition: color var(--transition-base);
+                    "
+                    aria-expanded="false"
+                    data-faq-trigger
+                  >
+                    <span style="flex: 1;">{{ block.settings.question }}</span>
+
+                    <!-- Icon -->
+                    <svg
+                      class="pharmaco-faqs__icon"
+                      width="24"
+                      height="24"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      style="
+                        flex-shrink: 0;
+                        transition: transform var(--transition-base);
+                        color: var(--color-purple);
+                      "
+                      data-faq-icon
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                  </button>
+
+                  <!-- Answer Content -->
+                  <div
+                    class="pharmaco-faqs__content"
+                    style="
+                      max-height: 0;
+                      overflow: hidden;
+                      transition: max-height 0.3s ease-in-out;
+                    "
+                    data-faq-content
+                  >
+                    <div style="padding: 0 1.5rem 1.25rem;">
+                      <div style="
+                        color: var(--color-gray-600);
+                        line-height: 1.75;
+                        font-size: var(--font-size-base);
+                      ">
+                        {{ block.settings.answer }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <!-- Optional Info Box -->
+      {% if section.settings.info_text != blank %}
+        <div style="
+          margin-top: 3rem;
+          background: rgba(177, 156, 217, 0.1);
+          border-radius: var(--radius-xl);
+          padding: 2rem;
+          border: 1px solid var(--color-purple-light);
+        ">
+          <p style="color: var(--color-gray-600); font-style: italic; margin: 0; line-height: 1.75;">
+            {{ section.settings.info_text }}
+          </p>
+        </div>
+      {% endif %}
+
+      <!-- Optional CTAs -->
+      {% if section.settings.show_ctas %}
+        <div style="margin-top: 3rem; text-align: center;">
+          {% if section.settings.cta_text != blank %}
+            <p style="color: var(--color-gray-600); margin-bottom: 1.5rem;">
+              {{ section.settings.cta_text }}
+            </p>
+          {% endif %}
+
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+            {% if section.settings.primary_cta_text != blank and section.settings.primary_cta_link != blank %}
+              <a
+                href="{{ section.settings.primary_cta_link }}"
+                class="pharmaco-btn pharmaco-btn--purple"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  padding: 0.875rem 2rem;
+                  font-size: var(--font-size-base);
+                  font-weight: 600;
+                  border-radius: var(--radius-lg);
+                  text-decoration: none;
+                  background: linear-gradient(135deg, var(--color-purple-mid) 0%, var(--color-purple-dark) 100%);
+                  color: var(--color-white);
+                  box-shadow: 0 4px 14px 0 hsla(280, 60%, 55%, 0.35);
+                  transition: all var(--transition-base);
+                "
+              >
+                {{ section.settings.primary_cta_text }}
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            {% endif %}
+
+            {% if section.settings.secondary_cta_text != blank and section.settings.secondary_cta_link != blank %}
+              <a
+                href="{{ section.settings.secondary_cta_link }}"
+                class="pharmaco-btn pharmaco-btn--teal"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  padding: 0.875rem 2rem;
+                  font-size: var(--font-size-base);
+                  font-weight: 600;
+                  border-radius: var(--radius-lg);
+                  text-decoration: none;
+                  background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-teal-dark) 100%);
+                  color: var(--color-white);
+                  box-shadow: 0 4px 14px 0 hsla(180, 55%, 45%, 0.35);
+                  transition: all var(--transition-base);
+                "
+              >
+                {{ section.settings.secondary_cta_text }}
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .pharmaco-faqs__item[data-open="true"] {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .pharmaco-faqs__trigger:hover {
+    color: var(--color-purple);
+  }
+
+  .pharmaco-faqs__item[data-open="true"] .pharmaco-faqs__icon {
+    transform: rotate(180deg);
+  }
+
+  .pharmaco-btn--purple:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 hsla(280, 60%, 55%, 0.45);
+  }
+
+  .pharmaco-btn--teal:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 hsla(180, 55%, 45%, 0.45);
+  }
+
+  .pharmaco-btn svg {
+    transition: transform var(--transition-base);
+  }
+
+  .pharmaco-btn:hover svg {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 640px) {
+    .pharmaco-faqs__trigger {
+      font-size: var(--font-size-base) !important;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    // FAQ Accordion functionality
+    const faqItems = document.querySelectorAll('[data-faq-item]');
+
+    faqItems.forEach(function(item) {
+      const trigger = item.querySelector('[data-faq-trigger]');
+      const content = item.querySelector('[data-faq-content]');
+      const icon = item.querySelector('[data-faq-icon]');
+
+      if (!trigger || !content) return;
+
+      // Click handler
+      trigger.addEventListener('click', function() {
+        const isOpen = item.getAttribute('data-open') === 'true';
+
+        // Close all other items
+        faqItems.forEach(function(otherItem) {
+          if (otherItem !== item) {
+            otherItem.setAttribute('data-open', 'false');
+            const otherContent = otherItem.querySelector('[data-faq-content]');
+            const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
+            if (otherContent) otherContent.style.maxHeight = '0px';
+            if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Toggle current item
+        if (isOpen) {
+          item.setAttribute('data-open', 'false');
+          content.style.maxHeight = '0px';
+          trigger.setAttribute('aria-expanded', 'false');
+        } else {
+          item.setAttribute('data-open', 'true');
+          content.style.maxHeight = content.scrollHeight + 'px';
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "FAQs",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Additional Information"
+    },
+    {
+      "type": "textarea",
+      "id": "info_text",
+      "label": "Information Box Text",
+      "info": "Optional highlighted information box shown below FAQs"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_ctas",
+      "label": "Show CTA Buttons",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "cta_text",
+      "label": "CTA Description",
+      "default": "Still have questions? Learn more about menopause and treatment options."
+    },
+    {
+      "type": "text",
+      "id": "primary_cta_text",
+      "label": "Primary Button Text",
+      "default": "About Menopause"
+    },
+    {
+      "type": "url",
+      "id": "primary_cta_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_cta_text",
+      "label": "Secondary Button Text",
+      "default": "Track Your Symptoms"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_link",
+      "label": "Secondary Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What is menopause?"
+        },
+        {
+          "type": "html",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Menopause is a natural biological process that marks the end of menstrual cycles. It's diagnosed after you've gone 12 months without a menstrual period."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQs",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What is menopause?",
+            "answer": "Menopause is a natural biological process that marks the end of menstrual cycles. It's diagnosed after you've gone 12 months without a menstrual period."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What is menopausal hormone therapy (MHT)?",
+            "answer": "MHT involves taking hormones to replace those that decrease during menopause. It can help relieve symptoms such as hot flushes, night sweats, and vaginal dryness."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Is MHT safe?",
+            "answer": "For many women, the benefits of MHT outweigh the risks, especially when started within 10 years of menopause. Your doctor can help determine if it's right for you based on your individual health profile."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

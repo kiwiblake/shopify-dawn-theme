@@ -1,0 +1,112 @@
+{
+  "sections": {
+    "pharmaco_page_hero": {
+      "type": "pharmaco-page-hero",
+      "settings": {
+        "eyebrow_text": "Get Answers",
+        "heading": "Frequently Asked Questions",
+        "description": "Find answers to common questions about menopause and treatment options."
+      }
+    },
+    "pharmaco_faqs": {
+      "type": "pharmaco-faqs",
+      "blocks": {
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "question": "What is menopause?",
+            "answer": "<p>Menopause is a natural biological process that marks the end of menstrual cycles. It's diagnosed after you've gone 12 months without a menstrual period. Menopause typically occurs between ages 45-55, with the average age being 51.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "question": "What are the stages of menopause?",
+            "answer": "<p>There are three main stages:</p><ul style='margin: 0.5rem 0; padding-left: 1.5rem;'><li><strong>Perimenopause</strong> - The transition phase leading up to menopause, which can last several years</li><li><strong>Menopause</strong> - Diagnosed after 12 consecutive months without a period</li><li><strong>Postmenopause</strong> - The years following menopause</li></ul>"
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "question": "What are common menopause symptoms?",
+            "answer": "<p>Common symptoms include:</p><ul style='margin: 0.5rem 0; padding-left: 1.5rem;'><li>Hot flushes and night sweats</li><li>Sleep disturbances</li><li>Mood changes</li><li>Vaginal dryness</li><li>Reduced libido</li><li>Weight gain</li><li>Joint and muscle aches</li><li>Difficulty concentrating</li></ul><p style='margin-top: 0.5rem;'>The severity and combination of symptoms varies from woman to woman.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "question": "What is Menopausal Hormone Therapy (MHT)?",
+            "answer": "<p>Menopausal Hormone Therapy (MHT), also known as Hormone Replacement Therapy (HRT), involves taking hormones to replace those that decrease during menopause. It typically includes estrogen and, for women with an intact uterus, progesterone to protect the uterine lining.</p><p style='margin-top: 0.5rem;'>MHT can help relieve symptoms such as hot flushes, night sweats, vaginal dryness, and mood changes.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq",
+          "settings": {
+            "question": "Is MHT safe?",
+            "answer": "<p>For many women, the benefits of MHT outweigh the risks, especially when started within 10 years of menopause or before age 60. MHT is considered safe for most healthy women experiencing menopausal symptoms.</p><p style='margin-top: 0.5rem;'>Your healthcare provider can help determine if MHT is appropriate for you based on your individual health profile, medical history, and symptom severity. They will discuss the potential benefits and risks specific to your situation.</p>"
+          }
+        },
+        "faq_6": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the difference between Estrogel and Utrogestan?",
+            "answer": "<p><strong>Estrogel</strong> is an estrogen gel that contains estradiol. It's applied to the skin and helps relieve symptoms caused by estrogen deficiency.</p><p style='margin-top: 0.5rem;'><strong>Utrogestan</strong> is a body-identical progesterone capsule. It's used in combination with estrogen therapy in women who have an intact uterus to protect the lining of the uterus.</p><p style='margin-top: 0.5rem;'>Most women with a uterus need both hormones as part of their MHT regimen.</p>"
+          }
+        },
+        "faq_7": {
+          "type": "faq",
+          "settings": {
+            "question": "Do I need both estrogen and progesterone?",
+            "answer": "<p>If you have an intact uterus (you haven't had a hysterectomy), you will need both estrogen and progesterone. The progesterone protects the lining of your uterus from the effects of estrogen alone.</p><p style='margin-top: 0.5rem;'>If you've had a hysterectomy, you typically only need estrogen therapy.</p>"
+          }
+        },
+        "faq_8": {
+          "type": "faq",
+          "settings": {
+            "question": "How long can I take MHT?",
+            "answer": "<p>There's no set time limit for MHT. The duration depends on your individual symptoms, benefits, and risk factors. Many women take MHT for several years, and some continue for longer.</p><p style='margin-top: 0.5rem;'>Regular reviews with your healthcare provider (typically annually) will help ensure MHT remains the right choice for you. The decision to continue, adjust, or stop MHT should be made jointly with your doctor.</p>"
+          }
+        },
+        "faq_9": {
+          "type": "faq",
+          "settings": {
+            "question": "Are Estrogel and Utrogestan funded in New Zealand?",
+            "answer": "<p>Yes, both Estrogel and Utrogestan are fully funded by PHARMAC in New Zealand, making them accessible and affordable treatment options for eligible women.</p><p style='margin-top: 0.5rem;'>You'll need a prescription from your healthcare provider to access these medicines.</p>"
+          }
+        },
+        "faq_10": {
+          "type": "faq",
+          "settings": {
+            "question": "What should I do if I'm experiencing menopause symptoms?",
+            "answer": "<p>If you're experiencing symptoms that are affecting your quality of life, make an appointment with your healthcare provider. They can:</p><ul style='margin: 0.5rem 0; padding-left: 1.5rem;'><li>Confirm whether your symptoms are related to menopause</li><li>Discuss treatment options, including MHT and lifestyle changes</li><li>Assess your individual health profile and any risk factors</li><li>Create a personalized treatment plan</li></ul><p style='margin-top: 0.5rem;'>You don't have to suffer through menopause symptoms - effective treatments are available.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6",
+        "faq_7",
+        "faq_8",
+        "faq_9",
+        "faq_10"
+      ],
+      "settings": {
+        "info_text": "This information is for general educational purposes only. Always consult with your healthcare provider for advice tailored to your individual circumstances.",
+        "show_ctas": true,
+        "cta_text": "Still have questions? Learn more about menopause and treatment options.",
+        "primary_cta_text": "About Menopause",
+        "primary_cta_link": "/pages/menopause",
+        "secondary_cta_text": "Track Your Symptoms",
+        "secondary_cta_link": "/pages/symptoms"
+      }
+    }
+  },
+  "order": [
+    "pharmaco_page_hero",
+    "pharmaco_faqs"
+  ]
+}
