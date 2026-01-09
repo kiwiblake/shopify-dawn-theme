@@ -3,7 +3,7 @@
   "type": "header",
   "sections": {
     "pharmaco-header": {
-      "type": "pharmaco-header",
+      "type": "pharmaco-header-simple",
       "settings": {
         "branding_text": "A Pharmaco Pharmaceuticals Patient Information Website",
         "hcp_login_text": "Healthcare Professional Login",

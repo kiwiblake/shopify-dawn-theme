@@ -1,0 +1,287 @@
+{% comment %}
+  Pharmaco Women's Health Header - Simplified (No Alpine.js)
+  Features: Purple branding bar, sticky navigation, mobile menu
+{% endcomment %}
+
+<header
+  id="pharmaco-header"
+  data-pharmaco-header
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
+  <!-- Pharmaco branding bar -->
+  <div class="bg-gradient-purple text-white py-2">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+      <span class="text-xs font-medium tracking-wide opacity-90">
+        {{ section.settings.branding_text }}
+      </span>
+      {% if section.settings.hcp_login_text and section.settings.hcp_login_link %}
+        <a
+          href="{{ section.settings.hcp_login_link }}"
+          class="text-xs font-medium hover:underline opacity-90 hover:opacity-100 transition-opacity"
+        >
+          {{ section.settings.hcp_login_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Main navigation -->
+  <div
+    id="main-nav"
+    class="transition-all duration-300 bg-transparent"
+  >
+    <div class="container mx-auto px-4">
+      <nav class="flex items-center justify-between h-16 md:h-20">
+        <!-- Logo -->
+        <a href="{{ routes.root_url }}" class="flex items-center gap-3 group">
+          {% if section.settings.logo_color %}
+            <img
+              id="header-logo"
+              src="{{ section.settings.logo_color | image_url: width: 200 }}"
+              data-logo-white="{{ section.settings.logo_white | image_url: width: 200 }}"
+              data-logo-color="{{ section.settings.logo_color | image_url: width: 200 }}"
+              alt="{{ shop.name }}"
+              class="h-10 md:h-12 w-auto object-contain transition-all duration-300"
+              loading="eager"
+            >
+          {% else %}
+            <span id="header-text-logo" class="font-display text-xl md:text-2xl font-bold uppercase text-white">
+              {{ shop.name }}
+            </span>
+          {% endif %}
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex items-center gap-1">
+          {% for link in section.settings.menu.links %}
+            <a
+              href="{{ link.url }}"
+              class="nav-link px-4 py-2 rounded-lg transition-all duration-200 font-display uppercase text-sm tracking-wide text-white hover:text-teal hover:bg-white/10"
+            >
+              {{ link.title }}
+            </a>
+          {% endfor %}
+        </div>
+
+        <!-- CTA Button -->
+        <div class="hidden md:flex items-center gap-4">
+          {% if section.settings.cta_text and section.settings.cta_link %}
+            <a
+              href="{{ section.settings.cta_link }}"
+              class="btn-secondary px-6 py-2 rounded-lg text-sm transition-all duration-300"
+            >
+              {{ section.settings.cta_text }}
+            </a>
+          {% endif %}
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-btn"
+          data-mobile-menu-toggle
+          class="lg:hidden p-2 transition-colors text-white"
+          aria-label="Toggle menu"
+        >
+          <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    data-mobile-menu
+    class="lg:hidden bg-white/98 backdrop-blur-md border-t border-gray-200 hidden"
+  >
+    <div class="container mx-auto px-4 py-4 space-y-2">
+      {% for link in section.settings.menu.links %}
+        <a
+          href="{{ link.url }}"
+          class="block py-3 px-4 rounded-lg transition-colors font-display uppercase tracking-wide text-gray-700 hover:bg-purple-light hover:text-purple"
+        >
+          {{ link.title }}
+        </a>
+      {% endfor %}
+
+      {% if section.settings.cta_text and section.settings.cta_link %}
+        <a
+          href="{{ section.settings.cta_link }}"
+          class="block w-full btn-secondary text-center px-6 py-3 rounded-lg mt-4"
+        >
+          {{ section.settings.cta_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</header>
+
+<!-- Spacer to prevent content from hiding under fixed header -->
+<div class="h-28 md:h-32"></div>
+
+<script>
+  // Header scroll and mobile menu functionality
+  (function() {
+    const header = document.getElementById('pharmaco-header');
+    const mainNav = document.getElementById('main-nav');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const headerLogo = document.getElementById('header-logo');
+    const headerTextLogo = document.getElementById('header-text-logo');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Scroll behavior
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > 20) {
+        mainNav.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-soft');
+        mainNav.classList.remove('bg-transparent');
+
+        // Update logo if exists
+        if (headerLogo && headerLogo.dataset.logoWhite && headerLogo.dataset.logoColor) {
+          headerLogo.src = headerLogo.dataset.logoColor;
+        }
+
+        // Update text logo color
+        if (headerTextLogo) {
+          headerTextLogo.classList.remove('text-white');
+          headerTextLogo.classList.add('text-purple');
+        }
+
+        // Update nav link colors
+        navLinks.forEach(link => {
+          link.classList.remove('text-white', 'hover:text-teal', 'hover:bg-white/10');
+          link.classList.add('text-gray-700', 'hover:text-purple', 'hover:bg-purple-light');
+        });
+
+        // Update mobile button color
+        if (mobileMenuBtn) {
+          mobileMenuBtn.classList.remove('text-white');
+          mobileMenuBtn.classList.add('text-gray-700');
+        }
+      } else {
+        mainNav.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-soft');
+        mainNav.classList.add('bg-transparent');
+
+        // Update logo if exists
+        if (headerLogo && headerLogo.dataset.logoWhite && headerLogo.dataset.logoColor) {
+          headerLogo.src = headerLogo.dataset.logoWhite;
+        }
+
+        // Update text logo color
+        if (headerTextLogo) {
+          headerTextLogo.classList.remove('text-purple');
+          headerTextLogo.classList.add('text-white');
+        }
+
+        // Update nav link colors
+        navLinks.forEach(link => {
+          link.classList.remove('text-gray-700', 'hover:text-purple', 'hover:bg-purple-light');
+          link.classList.add('text-white', 'hover:text-teal', 'hover:bg-white/10');
+        });
+
+        // Update mobile button color
+        if (mobileMenuBtn) {
+          mobileMenuBtn.classList.remove('text-gray-700');
+          mobileMenuBtn.classList.add('text-white');
+        }
+      }
+
+      lastScroll = currentScroll;
+    });
+
+    // Mobile menu toggle
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+
+        if (isOpen) {
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        } else {
+          mobileMenu.classList.remove('hidden');
+          menuIcon.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+        }
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Pharmaco Header",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Branding Bar"
+    },
+    {
+      "type": "text",
+      "id": "branding_text",
+      "label": "Branding Text",
+      "default": "A Pharmaco Pharmaceuticals Patient Information Website"
+    },
+    {
+      "type": "text",
+      "id": "hcp_login_text",
+      "label": "HCP Login Text",
+      "default": "Healthcare Professional Login"
+    },
+    {
+      "type": "url",
+      "id": "hcp_login_link",
+      "label": "HCP Login Link"
+    },
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_white",
+      "label": "Logo (White version for transparent background)"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_color",
+      "label": "Logo (Color version for white background)"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "Track Your Symptoms"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA Button Link"
+    }
+  ]
+}
+{% endschema %}
