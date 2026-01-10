@@ -1,0 +1,22 @@
+# Shopify Theme Configuration
+# This file tells Shopify where to find your theme files
+
+# Theme directory (leave empty if files are at root)
+theme_directory: .
+
+# Ignore patterns
+ignore:
+  - .git/
+  - .github/
+  - .vscode/
+  - .claude/
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - README.md
+  - LICENSE.md
+  - .gitignore
+  - .prettierrc.json
+  - .theme-check.yml
+  - translation.yml
+  - release-notes.md
